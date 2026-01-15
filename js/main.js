@@ -351,30 +351,44 @@ document.addEventListener('keydown', (e) => {
 });
 
 function triggerEasterEgg() {
-    // Create confetti effect
-    for (let i = 0; i < 50; i++) {
+    // Create MASSIVE confetti effect - 100 flags!
+    for (let i = 0; i < 100; i++) {
         const confetti = document.createElement('div');
-        confetti.innerHTML = '🇺🇸';
+        confetti.innerHTML = i % 2 === 0 ? '🇺🇸' : '⭐';
         confetti.style.cssText = `
             position: fixed;
             left: ${Math.random() * 100}%;
-            top: -20px;
-            font-size: 2rem;
+            top: -50px;
+            font-size: ${Math.random() * 2 + 1.5}rem;
             z-index: 10000;
-            animation: confettiFall ${2 + Math.random() * 1}s ease-in forwards;
+            animation: confettiFall ${2 + Math.random() * 2}s ease-in forwards;
+            opacity: 1;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
         `;
         document.body.appendChild(confetti);
-        setTimeout(() => confetti.remove(), 3000);
+        setTimeout(() => confetti.remove(), 4000);
     }
 
+    // Add sound effect (if we can)
+    const audio = new Audio('data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==');
+    audio.play().catch(() => {});
+
     // Add confetti animation if not present
-    if (!document.querySelector('style#confetti-animation')) {
+    if (!document.querySelector('style#confetti-animation-enhanced')) {
         const style = document.createElement('style');
-        style.id = 'confetti-animation';
+        style.id = 'confetti-animation-enhanced';
         style.textContent = `
             @keyframes confettiFall {
-                to {
-                    transform: translateY(100vh) rotate(360deg);
+                0% {
+                    transform: translateY(0) rotateZ(0deg) scale(1);
+                    opacity: 1;
+                }
+                50% {
+                    transform: translateY(50vh) rotateZ(180deg) scale(1.1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(100vh) rotateZ(360deg) scale(0.5);
                     opacity: 0;
                 }
             }
