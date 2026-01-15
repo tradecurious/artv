@@ -917,24 +917,357 @@ a:focus-visible {
     outline-offset: 4px;
 }
 
-input:focus-visible {
-    outline: 3px dashed var(--gold);
-    outline-offset: 2px;
-}
-
-
 /* ============================================
-   ANIMATED BACKGROUND & STARS
+   PATRIOTIC ANIMATED FLAG & GRAPHICS
    ============================================ */
 
-.stars-background {
+.animated-flag {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    margin: 2rem auto;
+    position: relative;
+    display: flex;
+    gap: 0;
+}
+
+.flag-stripe {
+    flex: 1;
+    height: 100%;
+    animation: waveFlag 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.flag-stripe.red {
+    background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+    animation-delay: 0s;
+}
+
+.flag-stripe.white {
+    background: linear-gradient(90deg, #ffffff, #f3f4f6, #ffffff);
+    color: #333;
+    animation-delay: 0.15s;
+}
+
+.flag-stripe.blue {
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6, #1e3a8a);
+    animation-delay: 0.3s;
+}
+
+@keyframes waveFlag {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.15); }
+}
+
+.flag-container {
+    perspective: 1000px;
+    margin: 2rem 0;
+    filter: drop-shadow(0 10px 30px rgba(220, 38, 38, 0.3));
+}
+
+/* Star burst animation */
+.star-burst {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 2rem auto;
+}
+
+.star-burst::before,
+.star-burst::after {
+    content: '⭐';
+    position: absolute;
+    font-size: 3rem;
+    animation: burstSpin 4s linear infinite;
+}
+
+.star-burst::before {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.star-burst::after {
+    left: 50%;
+    top: 50%;
+    font-size: 2rem;
+    animation: burstSpin 4s linear infinite reverse;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+}
+
+@keyframes burstSpin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Floating stars background */
+.floating-stars {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
-    background:
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkleStar 3s ease-in-out infinite;
+}
+
+@keyframes twinkleStar {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Patriotic banner */
+.patriotic-banner {
+    background: linear-gradient(90deg,
+        #dc2626 0%,
+        #dc2626 25%,
+        #ffffff 25%,
+        #ffffff 50%,
+        #1e3a8a 50%,
+        #1e3a8a 75%,
+        #dc2626 75%,
+        #dc2626 100%
+    );
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.patriotic-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: bannerShine 3s infinite;
+}
+
+@keyframes bannerShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Star-spangled header */
+.star-spangled {
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+}
+
+.star-spangled::before,
+.star-spangled::after {
+    content: '★';
+    position: absolute;
+    font-size: 2rem;
+    color: var(--gold);
+    animation: starFloat 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+}
+
+.star-spangled::before {
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.star-spangled::after {
+    right: 20px;
+    animation-delay: 0.5s;
+}
+
+@keyframes starFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.2); }
+}
+
+/* Eagle silhouette animation */
+.eagle-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    font-size: 4rem;
+    animation: eagleGlide 4s ease-in-out infinite;
+}
+
+@keyframes eagleGlide {
+    0%, 100% { transform: translateY(0) scaleX(1); }
+    25% { transform: translateY(-20px) scaleX(1); }
+    50% { transform: translateY(0) scaleX(-1); }
+    75% { transform: translateY(-20px) scaleX(-1); }
+}
+
+/* Striped background accent */
+.stripe-accent {
+    background: repeating-linear-gradient(
+        45deg,
+        #dc2626,
+        #dc2626 10px,
+        #ffffff 10px,
+        #ffffff 20px,
+        #1e3a8a 20px,
+        #1e3a8a 30px
+    );
+    padding: 2px;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.stripe-accent > * {
+    background: inherit;
+}
+
+/* Rotating stars */
+.star-rotator {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 2rem auto;
+}
+
+.star-rotator::before {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 4rem;
+    color: var(--gold);
+    transform: translate(-50%, -50%);
+    animation: starRotate 8s linear infinite;
+    text-shadow: 0 0 30px rgba(251, 191, 36, 0.7);
+}
+
+@keyframes starRotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* American shield */
+.shield-badge {
+    width: 120px;
+    height: 140px;
+    margin: 1.5rem auto;
+    background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 100%);
+    border-radius: 10px 10px 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 3px solid var(--gold);
+    animation: shieldGlow 2s ease-in-out infinite;
+}
+
+@keyframes shieldGlow {
+    0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+    50% { box-shadow: 0 15px 50px rgba(220, 38, 38, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+}
+
+/* Patriotic text effects */
+.text-patriotic {
+    background: linear-gradient(90deg,
+        #dc2626 0%,
+        #dc2626 33%,
+        #ffffff 33%,
+        #ffffff 66%,
+        #1e3a8a 66%,
+        #1e3a8a 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+    text-shadow: none;
+}
+
+/* Patriotic pulse */
+.patriotic-pulse {
+    animation: patrioticPulse 2s ease-in-out infinite;
+}
+
+@keyframes patrioticPulse {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(220, 38, 38, 0.5),
+                     0 0 40px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(220, 38, 38, 0.8),
+                     0 0 60px rgba(59, 130, 246, 0.5);
+    }
+}
+
+/* Stripes divider */
+.stripes-divider {
+    height: 8px;
+    background: linear-gradient(90deg,
+        #dc2626 0%,
+        #dc2626 33.33%,
+        #ffffff 33.33%,
+        #ffffff 66.66%,
+        #1e3a8a 66.66%,
+        #1e3a8a 100%
+    );
+    margin: 2rem 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated stars field */
+.stars-field {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stars-field-star {
+    position: absolute;
+    color: white;
+    font-size: 1.5rem;
+    animation: starFloat 3s ease-in-out infinite;
+}
+
+.stars-field-star:nth-child(1) { left: 10%; animation-delay: 0s; }
+.stars-field-star:nth-child(2) { left: 20%; animation-delay: 0.2s; }
+.stars-field-star:nth-child(3) { left: 30%; animation-delay: 0.4s; }
+.stars-field-star:nth-child(4) { left: 40%; animation-delay: 0.6s; }
+.stars-field-star:nth-child(5) { left: 50%; animation-delay: 0.8s; }
+.stars-field-star:nth-child(6) { left: 60%; animation-delay: 1s; }
+.stars-field-star:nth-child(7) { left: 70%; animation-delay: 1.2s; }
+.stars-field-star:nth-child(8) { left: 80%; animation-delay: 1.4s; }
+.stars-field-star:nth-child(9) { left: 90%; animation-delay: 1.6s; }
+
+
         radial-gradient(2px 2px at 20px 30px, white, rgba(255,255,255,0.2)),
         radial-gradient(2px 2px at 60px 70px, white, rgba(255,255,255,0.2)),
         radial-gradient(1px 1px at 50px 50px, white, rgba(255,255,255,0.3)),
