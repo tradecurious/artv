@@ -1,11 +1,5 @@
-/* Import American Scribe Font */
-@font-face {
-    font-family: 'American Scribe';
-    src: local('American Scribe'),
-         url('https://fonts.googleapis.com/css2?family=Copperplate:wght@400;700&display=swap') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
+/* Import Cinzel Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
 
 /* Old Glory Color Palette */
 :root {
@@ -88,7 +82,7 @@ body {
     color: #000000;
     max-width: 800px;
     padding: 0 20px;
-    font-family: 'American Scribe', 'Copperplate', 'Engravers MT', 'Palatino Linotype', serif;
+    font-family: 'Cinzel', serif;
 }
 
 .hero-content h1 {
@@ -97,14 +91,14 @@ body {
     line-height: 1.1;
     margin-bottom: 20px;
     letter-spacing: 0.5px;
-    font-family: 'American Scribe', 'Copperplate', 'Engravers MT', 'Palatino Linotype', serif;
+    font-family: 'Cinzel', serif;
 }
 
 .hero-content p {
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     font-weight: 400;
     letter-spacing: 0.5px;
-    font-family: 'American Scribe', 'Copperplate', 'Engravers MT', 'Palatino Linotype', serif;
+    font-family: 'Cinzel', serif;
 }
 
 /* Event Details Section */
