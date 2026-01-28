@@ -79,7 +79,7 @@ body {
     color: #000000;
     max-width: 800px;
     padding: 0 20px;
-    font-family: 'Garamond', 'Georgia', serif;
+    font-family: 'Engravers MT', 'American Scribe', serif;
 }
 
 .hero-content h1 {
@@ -88,14 +88,14 @@ body {
     line-height: 1.1;
     margin-bottom: 20px;
     letter-spacing: 0.5px;
-    font-family: 'Garamond', 'Georgia', serif;
+    font-family: 'Engravers MT', 'American Scribe', serif;
 }
 
 .hero-content p {
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     font-weight: 400;
     letter-spacing: 0.5px;
-    font-family: 'Garamond', 'Georgia', serif;
+    font-family: 'Engravers MT', 'American Scribe', serif;
 }
 
 /* Event Details Section */
@@ -248,8 +248,7 @@ body {
     will-change: transform;
 }
 
-.speakers-carousel-container:hover .speakers-carousel,
-.speakers-carousel-container:has(.carousel-nav:hover) .speakers-carousel {
+.speakers-section:hover .speakers-carousel {
     animation-play-state: paused;
 }
 
