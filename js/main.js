@@ -13,13 +13,31 @@ document.getElementById('listservForm').addEventListener('submit', function(e) {
     alert('Thank you for joining the listserv!');
 });
 
-// Carousel navigation
+// Carousel animation - start on scroll with 2-second delay
 const carousel = document.getElementById('speakersCarousel');
 const navLeftBtn = document.querySelector('.carousel-nav-left');
 const navRightBtn = document.querySelector('.carousel-nav-right');
 
 let carouselOffset = 0;
 const cardWidth = 280 + 40; // card width + gap
+let carouselAnimationStarted = false;
+
+if (carousel) {
+    // Intersection Observer to start animation when carousel comes into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !carouselAnimationStarted) {
+                carouselAnimationStarted = true;
+                // Start animation after 2 second delay
+                setTimeout(() => {
+                    carousel.style.animation = 'carousel-scroll 40s linear infinite';
+                }, 2000);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(carousel);
+}
 
 if (navLeftBtn && navRightBtn && carousel) {
     navLeftBtn.addEventListener('click', () => {
@@ -38,7 +56,9 @@ if (navLeftBtn && navRightBtn && carousel) {
     // Resume animation after button click
     const container = document.querySelector('.speakers-carousel-container');
     container.addEventListener('mouseleave', () => {
-        carousel.style.animation = 'carousel-scroll 40s linear infinite';
+        if (carouselAnimationStarted) {
+            carousel.style.animation = 'carousel-scroll 40s linear infinite';
+        }
     });
 }
 
