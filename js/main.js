@@ -13,6 +13,35 @@ document.getElementById('listservForm').addEventListener('submit', function(e) {
     alert('Thank you for joining the listserv!');
 });
 
+// Carousel navigation
+const carousel = document.getElementById('speakersCarousel');
+const navLeftBtn = document.querySelector('.carousel-nav-left');
+const navRightBtn = document.querySelector('.carousel-nav-right');
+
+let carouselOffset = 0;
+const cardWidth = 280 + 40; // card width + gap
+
+if (navLeftBtn && navRightBtn && carousel) {
+    navLeftBtn.addEventListener('click', () => {
+        carouselOffset = Math.max(carouselOffset - cardWidth, 0);
+        carousel.style.transform = `translateX(-${carouselOffset}px)`;
+        carousel.style.animation = 'none';
+    });
+
+    navRightBtn.addEventListener('click', () => {
+        const maxOffset = carousel.scrollWidth - carousel.parentElement.clientWidth;
+        carouselOffset = Math.min(carouselOffset + cardWidth, maxOffset);
+        carousel.style.transform = `translateX(-${carouselOffset}px)`;
+        carousel.style.animation = 'none';
+    });
+
+    // Resume animation after button click
+    const container = document.querySelector('.speakers-carousel-container');
+    container.addEventListener('mouseleave', () => {
+        carousel.style.animation = 'carousel-scroll 40s linear infinite';
+    });
+}
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

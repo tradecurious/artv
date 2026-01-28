@@ -54,71 +54,109 @@
                         placeholder="Enter your email"
                         required
                     >
-                    <button type="submit" class="btn-primary">Join the Listserv</button>
                 </form>
-                <a href="#rsvp" class="btn-secondary">Request RSVP</a>
+                <button type="submit" form="listservForm" class="btn-primary">Join Listserv</button>
+                <a href="#rsvp" class="btn-secondary">RSVP</a>
             </div>
         </div>
     </section>
 
     <!-- Speakers Section -->
     <section class="speakers-section">
-        <div class="container">
-            <h2>Featured Speakers</h2>
-            <div class="speakers-grid">
-                <div class="speaker-card">
-                    <div class="speaker-image-container">
-                        <div class="speaker-image-front">
-                            <div class="speaker-image"></div>
+        <h2>Featured Speakers</h2>
+        <div class="speakers-carousel-container">
+            <button class="carousel-nav carousel-nav-left" aria-label="Previous speakers">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div class="speakers-carousel-wrapper">
+                <div class="speakers-carousel" id="speakersCarousel">
+                    <div class="speaker-card">
+                        <div class="speaker-image-container">
+                            <div class="speaker-image-front">
+                                <div class="speaker-image"></div>
+                            </div>
+                            <div class="speaker-image-back">
+                                <p>Title / Affiliation</p>
+                            </div>
                         </div>
-                        <div class="speaker-image-back">
-                            <p>Title / Affiliation</p>
-                        </div>
-                    </div>
-                    <div class="speaker-name">
-                        <h3>Speaker Name</h3>
-                    </div>
-                </div>
-                <div class="speaker-card">
-                    <div class="speaker-image-container">
-                        <div class="speaker-image-front">
-                            <div class="speaker-image"></div>
-                        </div>
-                        <div class="speaker-image-back">
-                            <p>Title / Affiliation</p>
+                        <div class="speaker-name">
+                            <h3>Speaker Name</h3>
                         </div>
                     </div>
-                    <div class="speaker-name">
-                        <h3>Speaker Name</h3>
-                    </div>
-                </div>
-                <div class="speaker-card">
-                    <div class="speaker-image-container">
-                        <div class="speaker-image-front">
-                            <div class="speaker-image"></div>
+                    <div class="speaker-card">
+                        <div class="speaker-image-container">
+                            <div class="speaker-image-front">
+                                <div class="speaker-image"></div>
+                            </div>
+                            <div class="speaker-image-back">
+                                <p>Title / Affiliation</p>
+                            </div>
                         </div>
-                        <div class="speaker-image-back">
-                            <p>Title / Affiliation</p>
-                        </div>
-                    </div>
-                    <div class="speaker-name">
-                        <h3>Speaker Name</h3>
-                    </div>
-                </div>
-                <div class="speaker-card">
-                    <div class="speaker-image-container">
-                        <div class="speaker-image-front">
-                            <div class="speaker-image"></div>
-                        </div>
-                        <div class="speaker-image-back">
-                            <p>Title / Affiliation</p>
+                        <div class="speaker-name">
+                            <h3>Speaker Name</h3>
                         </div>
                     </div>
-                    <div class="speaker-name">
-                        <h3>Speaker Name</h3>
+                    <div class="speaker-card">
+                        <div class="speaker-image-container">
+                            <div class="speaker-image-front">
+                                <div class="speaker-image"></div>
+                            </div>
+                            <div class="speaker-image-back">
+                                <p>Title / Affiliation</p>
+                            </div>
+                        </div>
+                        <div class="speaker-name">
+                            <h3>Speaker Name</h3>
+                        </div>
+                    </div>
+                    <div class="speaker-card">
+                        <div class="speaker-image-container">
+                            <div class="speaker-image-front">
+                                <div class="speaker-image"></div>
+                            </div>
+                            <div class="speaker-image-back">
+                                <p>Title / Affiliation</p>
+                            </div>
+                        </div>
+                        <div class="speaker-name">
+                            <h3>Speaker Name</h3>
+                        </div>
+                    </div>
+                    <div class="speaker-card">
+                        <div class="speaker-image-container">
+                            <div class="speaker-image-front">
+                                <div class="speaker-image"></div>
+                            </div>
+                            <div class="speaker-image-back">
+                                <p>Title / Affiliation</p>
+                            </div>
+                        </div>
+                        <div class="speaker-name">
+                            <h3>Speaker Name</h3>
+                        </div>
+                    </div>
+                    <div class="speaker-card">
+                        <div class="speaker-image-container">
+                            <div class="speaker-image-front">
+                                <div class="speaker-image"></div>
+                            </div>
+                            <div class="speaker-image-back">
+                                <p>Title / Affiliation</p>
+                            </div>
+                        </div>
+                        <div class="speaker-name">
+                            <h3>Speaker Name</h3>
+                        </div>
                     </div>
                 </div>
             </div>
+            <button class="carousel-nav carousel-nav-right" aria-label="Next speakers">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
         </div>
     </section>
 

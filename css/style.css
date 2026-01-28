@@ -164,7 +164,7 @@ body {
 /* Listserv Section */
 .listserv-section {
     padding: 60px 20px;
-    background: linear-gradient(to right, var(--old-glory-red) 0%, #b91d2b 100%);
+    background: linear-gradient(to right, #c62b38 0%, var(--old-glory-red) 100%);
     text-align: center;
 }
 
@@ -173,23 +173,20 @@ body {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: stretch;
 }
 
 .listserv-form {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 0;
 }
 
 .listserv-form input {
-    flex: 1;
     min-width: 250px;
     padding: 14px 20px;
     font-size: 1rem;
     border: 2px solid var(--old-glory-blue);
-    border-radius: 4px;
+    border-radius: 4px 0 0 4px;
     background: var(--old-glory-white);
     color: var(--dark-text);
     transition: border-color 0.3s ease;
@@ -205,7 +202,7 @@ body {
     background: var(--old-glory-white);
     color: var(--dark-text);
     border: 2px solid #c0c0c0;
-    border-radius: 4px;
+    border-radius: 0 4px 4px 0;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -217,7 +214,6 @@ body {
 }
 
 .btn-secondary {
-    display: inline-block;
     padding: 14px 28px;
     background: var(--old-glory-white);
     color: var(--dark-text);
@@ -228,6 +224,7 @@ body {
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .btn-secondary:hover {
@@ -247,14 +244,78 @@ body {
     color: var(--old-glory-blue);
 }
 
-.speakers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.speakers-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.speakers-carousel-wrapper {
+    flex: 1;
+    overflow: hidden;
+}
+
+.speakers-carousel {
+    display: flex;
     gap: 40px;
+    animation: carousel-scroll 40s linear infinite;
+    will-change: transform;
+}
+
+.speakers-carousel-container:hover .speakers-carousel,
+.speakers-carousel-container:has(.carousel-nav:hover) .speakers-carousel {
+    animation-play-state: paused;
+}
+
+@keyframes carousel-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% - 40px));
+    }
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: rgba(0, 40, 104, 0.3);
+    color: var(--old-glory-white);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-nav:hover {
+    background: rgba(0, 40, 104, 0.6);
+}
+
+.carousel-nav svg {
+    width: 24px;
+    height: 24px;
+}
+
+.carousel-nav-left {
+    left: 0;
+}
+
+.carousel-nav-right {
+    right: 0;
 }
 
 .speaker-card {
     text-align: center;
+    flex-shrink: 0;
+    min-width: 280px;
 }
 
 .speaker-image-container {
@@ -468,12 +529,12 @@ body {
     }
 
     .listserv-form {
-        flex-direction: column;
         width: 100%;
     }
 
     .listserv-form input {
         min-width: 100%;
+        border-radius: 4px 4px 0 0;
     }
 
     .listserv-ctas {
@@ -481,7 +542,11 @@ body {
         width: 100%;
     }
 
-    .btn-primary,
+    .btn-primary {
+        width: 100%;
+        border-radius: 0 0 4px 4px;
+    }
+
     .btn-secondary {
         width: 100%;
     }
