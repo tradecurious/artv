@@ -53,7 +53,22 @@ if (navLeftBtn && navRightBtn && carousel) {
         carousel.style.animation = 'none';
     });
 
-    // Resume animation after button click
+    // Pause carousel on speaker image hover
+    document.querySelectorAll('.speaker-image-container').forEach(imageContainer => {
+        imageContainer.addEventListener('mouseenter', () => {
+            if (carouselAnimationStarted) {
+                carousel.style.animation = 'none';
+            }
+        });
+
+        imageContainer.addEventListener('mouseleave', () => {
+            if (carouselAnimationStarted) {
+                carousel.style.animation = 'carousel-scroll 40s linear infinite';
+            }
+        });
+    });
+
+    // Resume animation after button click or section leave
     const container = document.querySelector('.speakers-carousel-container');
     container.addEventListener('mouseleave', () => {
         if (carouselAnimationStarted) {
