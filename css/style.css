@@ -145,6 +145,13 @@ body {
     color: var(--old-glory-blue);
 }
 
+.event-details-content p {
+    font-size: 1.05rem;
+    color: var(--dark-text);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
 .event-detail {
     margin-bottom: 30px;
 }
