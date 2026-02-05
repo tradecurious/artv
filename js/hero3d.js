@@ -153,8 +153,8 @@ class VShape3D {
         this.vShape.rotation.x += (this.targetRotation.x - this.vShape.rotation.x) * 0.05;
         this.vShape.rotation.y += (this.targetRotation.y - this.vShape.rotation.y) * 0.05;
 
-        // Continuous spin like Earth rotating on its axis (Z axis)
-        this.vShape.rotation.z += 0.008;
+        // Continuous spin like Earth rotating on its axis (Y axis - shows 3D depth)
+        this.vShape.rotation.y += 0.008;
 
         // Subtle bob animation
         this.vShape.position.y = Math.sin(Date.now() * 0.0005) * 3;
