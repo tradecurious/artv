@@ -125,9 +125,6 @@ class VShape3D {
         topRightSerifMesh.receiveShadow = true;
         group.add(topRightSerifMesh);
 
-        // Flip the V to be upright (180 degree rotation around X axis)
-        group.rotation.x = Math.PI;
-
         return group;
     }
 
