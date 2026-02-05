@@ -1,5 +1,5 @@
-/* Import Cinzel Font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
+/* Import EB Garamond Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap');
 
 /* Old Glory Color Palette */
 :root {
@@ -52,7 +52,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     font-size: 800px;
-    font-family: Georgia, serif;
+    font-family: 'EB Garamond', serif;
     font-weight: 700;
     color: rgba(0, 0, 0, 0.08);
     line-height: 1;
@@ -72,7 +72,7 @@ body {
     color: #000000;
     max-width: 900px;
     padding: 0 20px;
-    font-family: Georgia, serif;
+    font-family: 'EB Garamond', serif;
 }
 
 .hero-content h1 {
@@ -81,7 +81,7 @@ body {
     line-height: 1.1;
     margin-bottom: 30px;
     letter-spacing: 0.5px;
-    font-family: Georgia, serif;
+    font-family: 'EB Garamond', serif;
 }
 
 .v-italic {
@@ -94,7 +94,7 @@ body {
     font-weight: 400;
     letter-spacing: 0.3px;
     color: #666666;
-    font-family: Georgia, serif;
+    font-family: 'EB Garamond', serif;
     margin-bottom: 50px;
 }
 
@@ -120,7 +120,7 @@ body {
 }
 
 .event-info-cell p {
-    font-family: Georgia, serif;
+    font-family: 'EB Garamond', serif;
     font-size: 1.4rem;
     color: #000000;
     font-weight: 400;
@@ -205,7 +205,7 @@ body {
 .listserv-section h2 {
     font-size: clamp(2.5rem, 6vw, 3.8rem);
     font-weight: 400;
-    font-family: Georgia, serif;
+    font-family: 'EB Garamond', serif;
     color: var(--old-glory-white);
     margin-bottom: 30px;
     line-height: 1.2;
@@ -534,7 +534,7 @@ body {
 .explore-debate-section h2 {
     font-size: clamp(2.5rem, 6vw, 3.5rem);
     font-weight: 400;
-    font-family: Georgia, serif;
+    font-family: 'EB Garamond', serif;
     color: var(--dark-text);
     margin-bottom: 40px;
     line-height: 1.2;
@@ -647,6 +647,20 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 0.9rem;
     color: var(--old-glory-white);
+}
+
+.footer-bottom p {
+    margin: 8px 0;
+}
+
+.footer-bottom a {
+    color: var(--old-glory-white);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: var(--old-glory-red);
 }
 
 /* Responsive Design */
