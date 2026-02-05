@@ -536,6 +536,7 @@ body {
     width: 100%;
     height: 500px;
     position: relative;
+    transform: scaleY(-1);
 }
 
 #exploreDébate3dCanvas {
