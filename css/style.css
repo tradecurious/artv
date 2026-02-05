@@ -144,9 +144,10 @@ body {
 }
 
 .event-details-content h2 {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 400;
     margin-bottom: 40px;
-    color: var(--old-glory-blue);
+    color: var(--dark-text);
     font-family: 'EB Garamond', serif;
 }
 
