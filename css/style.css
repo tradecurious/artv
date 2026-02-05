@@ -48,11 +48,11 @@ body {
 
 .hero-watermark {
     position: absolute;
-    right: -150px;
+    right: -250px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 800px;
-    font-family: 'Cinzel', serif;
+    font-family: Georgia, serif;
     font-weight: 700;
     color: rgba(0, 0, 0, 0.08);
     line-height: 1;
@@ -72,7 +72,7 @@ body {
     color: #000000;
     max-width: 900px;
     padding: 0 20px;
-    font-family: 'Cinzel', serif;
+    font-family: Georgia, serif;
 }
 
 .hero-content h1 {
@@ -81,7 +81,7 @@ body {
     line-height: 1.1;
     margin-bottom: 30px;
     letter-spacing: 0.5px;
-    font-family: 'Cinzel', serif;
+    font-family: Georgia, serif;
 }
 
 .v-italic {
@@ -94,9 +94,8 @@ body {
     font-weight: 400;
     letter-spacing: 0.3px;
     color: #666666;
-    font-family: 'Cinzel', serif;
+    font-family: Georgia, serif;
     margin-bottom: 50px;
-    font-style: italic;
 }
 
 .event-info-grid {
@@ -121,7 +120,7 @@ body {
 }
 
 .event-info-cell p {
-    font-family: 'Cinzel', serif;
+    font-family: Georgia, serif;
     font-size: 1.4rem;
     color: #000000;
     font-weight: 400;
