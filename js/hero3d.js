@@ -55,7 +55,7 @@ class VShape3D {
     createCleanVShape() {
         const group = new THREE.Group();
 
-        // Create V from two diagonal lines that meet at a point
+        // Create serif V with proper proportions
         const material = new THREE.MeshPhysicalMaterial({
             color: this.options.color,
             metalness: 0.7,
@@ -67,41 +67,63 @@ class VShape3D {
             clearcoatRoughness: 0.15
         });
 
-        // Dimensions for the V strokes
-        const strokeWidth = 10;
-        const strokeLength = 110;
-        const vAngle = 0.45; // Angle in radians for each side
+        // Dimensions
+        const strokeWidth = 12;
+        const strokeLength = 120;
+        const serifLength = 35;
+        const serifHeight = 8;
+        const vAngle = 0.42; // Angle for each diagonal
 
-        // Left diagonal of V (going from top-left down to center-bottom)
+        // Left diagonal stroke
         const leftGeometry = new THREE.BoxGeometry(strokeWidth, strokeLength, strokeWidth);
         const leftMesh = new THREE.Mesh(leftGeometry, material);
-
-        // Position and rotate left stroke
         leftMesh.rotation.z = vAngle;
-        // Adjust position so it converges at bottom center
-        const leftOffsetX = -strokeLength * Math.sin(vAngle) / 2;
-        const leftOffsetY = strokeLength * Math.cos(vAngle) / 2 - 20;
+        const leftOffsetX = -strokeLength * Math.sin(vAngle) / 2 - 8;
+        const leftOffsetY = strokeLength * Math.cos(vAngle) / 2 - 15;
         leftMesh.position.x = leftOffsetX;
         leftMesh.position.y = leftOffsetY;
-
         leftMesh.castShadow = true;
         leftMesh.receiveShadow = true;
         group.add(leftMesh);
 
-        // Right diagonal of V (going from top-right down to center-bottom)
+        // Right diagonal stroke
         const rightGeometry = new THREE.BoxGeometry(strokeWidth, strokeLength, strokeWidth);
         const rightMesh = new THREE.Mesh(rightGeometry, material);
-
-        // Position and rotate right stroke (mirror of left)
         rightMesh.rotation.z = -vAngle;
-        const rightOffsetX = strokeLength * Math.sin(vAngle) / 2;
-        const rightOffsetY = strokeLength * Math.cos(vAngle) / 2 - 20;
+        const rightOffsetX = strokeLength * Math.sin(vAngle) / 2 + 8;
+        const rightOffsetY = strokeLength * Math.cos(vAngle) / 2 - 15;
         rightMesh.position.x = rightOffsetX;
         rightMesh.position.y = rightOffsetY;
-
         rightMesh.castShadow = true;
         rightMesh.receiveShadow = true;
         group.add(rightMesh);
+
+        // Top-left serif (horizontal bar at top of left stroke)
+        const topLeftSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
+        const topLeftSerifMesh = new THREE.Mesh(topLeftSerifGeometry, material);
+        topLeftSerifMesh.position.x = leftOffsetX - serifLength / 2 - 10;
+        topLeftSerifMesh.position.y = leftOffsetY + strokeLength / 2 - 5;
+        topLeftSerifMesh.castShadow = true;
+        topLeftSerifMesh.receiveShadow = true;
+        group.add(topLeftSerifMesh);
+
+        // Top-right serif (horizontal bar at top of right stroke)
+        const topRightSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
+        const topRightSerifMesh = new THREE.Mesh(topRightSerifGeometry, material);
+        topRightSerifMesh.position.x = rightOffsetX + serifLength / 2 + 10;
+        topRightSerifMesh.position.y = rightOffsetY + strokeLength / 2 - 5;
+        topRightSerifMesh.castShadow = true;
+        topRightSerifMesh.receiveShadow = true;
+        group.add(topRightSerifMesh);
+
+        // Bottom serif (horizontal bar at point of V)
+        const bottomSerifGeometry = new THREE.BoxGeometry(serifLength * 1.3, serifHeight, strokeWidth);
+        const bottomSerifMesh = new THREE.Mesh(bottomSerifGeometry, material);
+        bottomSerifMesh.position.x = 0;
+        bottomSerifMesh.position.y = -strokeLength / 2 + 15;
+        bottomSerifMesh.castShadow = true;
+        bottomSerifMesh.receiveShadow = true;
+        group.add(bottomSerifMesh);
 
         return group;
     }
@@ -118,12 +140,12 @@ class VShape3D {
     animate() {
         requestAnimationFrame(this.animate.bind(this));
 
-        // Smooth rotation following
+        // Smooth rotation following mouse (x and y axes)
         this.vShape.rotation.x += (this.targetRotation.x - this.vShape.rotation.x) * 0.05;
         this.vShape.rotation.y += (this.targetRotation.y - this.vShape.rotation.y) * 0.05;
 
-        // Gentle auto-rotation when not interacting
-        this.vShape.rotation.z += 0.002;
+        // Continuous spin like Earth rotating on its axis (Z axis)
+        this.vShape.rotation.z += 0.008;
 
         // Subtle bob animation
         this.vShape.position.y = Math.sin(Date.now() * 0.0005) * 3;
