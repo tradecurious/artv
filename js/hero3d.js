@@ -74,13 +74,13 @@ class VShape3D {
         const serifHeight = 8;
         const vAngle = 0.40; // Angle for each diagonal
 
-        // Convergence point at top center (where V points down)
+        // Convergence point at bottom center
         const convergeX = 0;
-        const convergeY = 65;
+        const convergeY = -65;
 
         // Calculate positions so strokes' bottom endpoints meet at convergence point
         // For a rotated box, bottom point is at: center - (length/2)*sin(angle), center - (length/2)*cos(angle)
-        // So to converge at (0, 65): centerX + (length/2)*sin(angle) = 0, centerY + (length/2)*cos(angle) = 65
+        // So to converge at (0, -65): centerX + (length/2)*sin(angle) = 0, centerY + (length/2)*cos(angle) = -65
         const leftOffsetX = convergeX + (strokeLength / 2) * Math.sin(vAngle);
         const leftOffsetY = convergeY + (strokeLength / 2) * Math.cos(vAngle);
 
@@ -111,7 +111,7 @@ class VShape3D {
         const topLeftSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
         const topLeftSerifMesh = new THREE.Mesh(topLeftSerifGeometry, material);
         topLeftSerifMesh.position.x = leftOffsetX - serifLength / 2 - 12;
-        topLeftSerifMesh.position.y = leftOffsetY - strokeLength / 2 + 5;
+        topLeftSerifMesh.position.y = leftOffsetY + strokeLength / 2 - 5;
         topLeftSerifMesh.castShadow = true;
         topLeftSerifMesh.receiveShadow = true;
         group.add(topLeftSerifMesh);
@@ -120,7 +120,7 @@ class VShape3D {
         const topRightSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
         const topRightSerifMesh = new THREE.Mesh(topRightSerifGeometry, material);
         topRightSerifMesh.position.x = rightOffsetX + serifLength / 2 + 12;
-        topRightSerifMesh.position.y = rightOffsetY - strokeLength / 2 + 5;
+        topRightSerifMesh.position.y = rightOffsetY + strokeLength / 2 - 5;
         topRightSerifMesh.castShadow = true;
         topRightSerifMesh.receiveShadow = true;
         group.add(topRightSerifMesh);
