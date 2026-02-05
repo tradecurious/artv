@@ -1,16 +1,64 @@
+// Initialize Supabase client
+// Replace these with your actual Supabase project credentials
+const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+let supabase = null;
+
+// Only initialize if credentials are set
+if (SUPABASE_URL !== 'YOUR_SUPABASE_URL' && SUPABASE_ANON_KEY !== 'YOUR_SUPABASE_ANON_KEY') {
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
+
 // Listserv Form Handler
-document.getElementById('listservForm').addEventListener('submit', function(e) {
+document.getElementById('listservForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const email = document.getElementById('email').value;
+    const submitBtn = document.querySelector('.btn-subscribe');
+    const originalText = submitBtn.textContent;
 
-    // Here you would typically send the email to a backend service
-    console.log('Email submitted:', email);
+    // Disable button during submission
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Subscribing...';
 
-    // Clear the form
-    this.reset();
+    try {
+        if (!supabase) {
+            throw new Error('Supabase not configured. Please set up your credentials in main.js');
+        }
 
-    // Optional: Show a success message
-    alert('Thank you for joining the listserv!');
+        // Insert email into Supabase
+        const { data, error } = await supabase
+            .from('mailing_list')
+            .insert([
+                {
+                    email: email,
+                    subscribed_at: new Date().toISOString()
+                }
+            ])
+            .select();
+
+        if (error) {
+            // Check if it's a duplicate email error
+            if (error.code === '23505') {
+                alert('This email is already subscribed!');
+            } else {
+                throw error;
+            }
+        } else {
+            // Clear the form
+            this.reset();
+
+            // Show success message
+            alert('Thank you for joining our mailing list!');
+        }
+    } catch (error) {
+        console.error('Error submitting email:', error);
+        alert('There was an error subscribing. Please try again later.');
+    } finally {
+        // Re-enable button
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    }
 });
 
 // Carousel animation - start on scroll with 2-second delay
