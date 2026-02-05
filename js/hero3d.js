@@ -55,7 +55,7 @@ class VShape3D {
     createCleanVShape() {
         const group = new THREE.Group();
 
-        // Create V from two simple geometries (boxes forming the diagonal lines)
+        // Create V from two diagonal lines that meet at a point
         const material = new THREE.MeshPhysicalMaterial({
             color: this.options.color,
             metalness: 0.7,
@@ -67,33 +67,41 @@ class VShape3D {
             clearcoatRoughness: 0.15
         });
 
-        // Left diagonal of V
-        const leftGeometry = new THREE.BoxGeometry(8, 100, 8);
+        // Dimensions for the V strokes
+        const strokeWidth = 10;
+        const strokeLength = 110;
+        const vAngle = 0.45; // Angle in radians for each side
+
+        // Left diagonal of V (going from top-left down to center-bottom)
+        const leftGeometry = new THREE.BoxGeometry(strokeWidth, strokeLength, strokeWidth);
         const leftMesh = new THREE.Mesh(leftGeometry, material);
-        leftMesh.position.x = -25;
-        leftMesh.position.y = 20;
-        leftMesh.rotation.z = 0.5; // Slight rotation to create the V angle
+
+        // Position and rotate left stroke
+        leftMesh.rotation.z = vAngle;
+        // Adjust position so it converges at bottom center
+        const leftOffsetX = -strokeLength * Math.sin(vAngle) / 2;
+        const leftOffsetY = strokeLength * Math.cos(vAngle) / 2 - 20;
+        leftMesh.position.x = leftOffsetX;
+        leftMesh.position.y = leftOffsetY;
+
         leftMesh.castShadow = true;
         leftMesh.receiveShadow = true;
         group.add(leftMesh);
 
-        // Right diagonal of V
-        const rightGeometry = new THREE.BoxGeometry(8, 100, 8);
+        // Right diagonal of V (going from top-right down to center-bottom)
+        const rightGeometry = new THREE.BoxGeometry(strokeWidth, strokeLength, strokeWidth);
         const rightMesh = new THREE.Mesh(rightGeometry, material);
-        rightMesh.position.x = 25;
-        rightMesh.position.y = 20;
-        rightMesh.rotation.z = -0.5; // Opposite rotation
+
+        // Position and rotate right stroke (mirror of left)
+        rightMesh.rotation.z = -vAngle;
+        const rightOffsetX = strokeLength * Math.sin(vAngle) / 2;
+        const rightOffsetY = strokeLength * Math.cos(vAngle) / 2 - 20;
+        rightMesh.position.x = rightOffsetX;
+        rightMesh.position.y = rightOffsetY;
+
         rightMesh.castShadow = true;
         rightMesh.receiveShadow = true;
         group.add(rightMesh);
-
-        // Bottom connector piece
-        const bottomGeometry = new THREE.BoxGeometry(60, 8, 8);
-        const bottomMesh = new THREE.Mesh(bottomGeometry, material);
-        bottomMesh.position.y = -40;
-        bottomMesh.castShadow = true;
-        bottomMesh.receiveShadow = true;
-        group.add(bottomMesh);
 
         return group;
     }
