@@ -125,14 +125,8 @@ class VShape3D {
         topRightSerifMesh.receiveShadow = true;
         group.add(topRightSerifMesh);
 
-        // Bottom serif (horizontal bar at point of V where they converge)
-        const bottomSerifGeometry = new THREE.BoxGeometry(serifLength * 1.5, serifHeight, strokeWidth);
-        const bottomSerifMesh = new THREE.Mesh(bottomSerifGeometry, material);
-        bottomSerifMesh.position.x = convergeX;
-        bottomSerifMesh.position.y = convergeY - 10;
-        bottomSerifMesh.castShadow = true;
-        bottomSerifMesh.receiveShadow = true;
-        group.add(bottomSerifMesh);
+        // Flip the V to be upright (180 degree rotation around X axis)
+        group.rotation.x = Math.PI;
 
         return group;
     }
