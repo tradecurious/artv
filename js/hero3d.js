@@ -116,19 +116,19 @@ class VShape3D {
         bottomSerifMesh.receiveShadow = true;
         group.add(bottomSerifMesh);
 
-        // Top-left serif (at the endpoint of left stroke - visual bottom-left prong - flipped)
+        // Top-left serif (centered at the endpoint of left stroke - visual bottom-left prong - flipped)
         const topLeftSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
         const topLeftSerifMesh = new THREE.Mesh(topLeftSerifGeometry, material);
-        topLeftSerifMesh.position.x = leftOffsetX + (strokeLength / 2) * Math.sin(vAngle) + serifLength + 20;
+        topLeftSerifMesh.position.x = leftOffsetX + (strokeLength / 2) * Math.sin(vAngle);
         topLeftSerifMesh.position.y = -(leftOffsetY + (strokeLength / 2) * Math.cos(vAngle));
         topLeftSerifMesh.castShadow = true;
         topLeftSerifMesh.receiveShadow = true;
         group.add(topLeftSerifMesh);
 
-        // Top-right serif (at the endpoint of right stroke - visual bottom-right prong - flipped)
+        // Top-right serif (centered at the endpoint of right stroke - visual bottom-right prong - flipped)
         const topRightSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
         const topRightSerifMesh = new THREE.Mesh(topRightSerifGeometry, material);
-        topRightSerifMesh.position.x = rightOffsetX - (strokeLength / 2) * Math.sin(vAngle) - serifLength - 20;
+        topRightSerifMesh.position.x = rightOffsetX - (strokeLength / 2) * Math.sin(vAngle);
         topRightSerifMesh.position.y = -(rightOffsetY + (strokeLength / 2) * Math.cos(vAngle));
         topRightSerifMesh.castShadow = true;
         topRightSerifMesh.receiveShadow = true;
