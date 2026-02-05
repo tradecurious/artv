@@ -47,17 +47,21 @@ body {
 }
 
 #hero3dCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: 1;
+    display: none;
 }
 
 .hero-watermark {
-    display: none;
+    position: absolute;
+    right: -250px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 800px;
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.08);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .hero-watermark::before {
@@ -66,23 +70,22 @@ body {
 }
 
 .hero-content {
-    position: absolute;
+    position: relative;
     z-index: 3;
     text-align: center;
     color: #000000;
     max-width: 900px;
     padding: 0 20px;
     font-family: 'EB Garamond', serif;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .hero-content h1 {
-    display: none;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+    font-family: 'EB Garamond', serif;
 }
 
 .v-italic {
@@ -96,8 +99,7 @@ body {
     letter-spacing: 0.3px;
     color: #666666;
     font-family: 'EB Garamond', serif;
-    margin-bottom: 60px;
-    margin-top: -80px;
+    margin-bottom: 50px;
 }
 
 .event-info-grid {
@@ -517,8 +519,32 @@ body {
     background: #e8dfd5;
 }
 
+.explore-debate-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 .explore-debate-content {
-    max-width: 900px;
+    max-width: 100%;
+}
+
+.explore-debate-3d {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+#exploreDébate3dCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .explore-label {
@@ -752,12 +778,21 @@ body {
         padding: 60px 20px;
     }
 
+    .explore-debate-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
     .explore-debate-section h2 {
         font-size: 2rem;
     }
 
     .explore-debate-section p {
         font-size: 1rem;
+    }
+
+    .explore-debate-3d {
+        height: 300px;
     }
 
     .btn-explore {

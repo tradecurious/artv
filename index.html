@@ -8,10 +8,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <!-- Hero Section with 3D Canvas -->
+    <!-- Hero Section -->
     <section class="hero">
-        <canvas id="hero3dCanvas"></canvas>
+        <div class="hero-watermark"></div>
         <div class="hero-content">
+            <h1><span class="v-italic">V</span> the People</h1>
             <p class="subtitle">Constitutional Amendment for Democratic Change</p>
 
             <div class="event-info-grid">
@@ -184,7 +185,7 @@
 
     <!-- Explore the Debate Section -->
     <section class="explore-debate-section">
-        <div class="container">
+        <div class="explore-debate-wrapper">
             <div class="explore-debate-content">
                 <h2>Explore the Debate</h2>
 
@@ -193,6 +194,9 @@
                 <p>Use it to explore questions like: How have we amended the Constitution in the past? What would an Article V convention look like? What are the arguments for and against this path to reform?</p>
 
                 <a href="https://notebooklm.google.com/notebook/57695ac9-a8bf-4003-9cc5-b831954650bd/preview?authuser=2" class="btn-explore" target="_blank">Open the Article V Research Collection <span class="arrow">↗</span></a>
+            </div>
+            <div class="explore-debate-3d">
+                <canvas id="exploreDébate3dCanvas"></canvas>
             </div>
         </div>
     </section>
