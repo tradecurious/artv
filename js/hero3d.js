@@ -107,20 +107,29 @@ class VShape3D {
         rightMesh.receiveShadow = true;
         group.add(rightMesh);
 
-        // Top-left serif (horizontal bar at top of left stroke)
+        // Serif at convergence point (visual bottom of V)
+        const bottomSerifGeometry = new THREE.BoxGeometry(serifLength * 1.2, serifHeight, strokeWidth);
+        const bottomSerifMesh = new THREE.Mesh(bottomSerifGeometry, material);
+        bottomSerifMesh.position.x = convergeX;
+        bottomSerifMesh.position.y = convergeY;
+        bottomSerifMesh.castShadow = true;
+        bottomSerifMesh.receiveShadow = true;
+        group.add(bottomSerifMesh);
+
+        // Top-left serif (at the endpoint of left stroke - visual top prong)
         const topLeftSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
         const topLeftSerifMesh = new THREE.Mesh(topLeftSerifGeometry, material);
-        topLeftSerifMesh.position.x = leftOffsetX - serifLength / 2 - 12;
-        topLeftSerifMesh.position.y = leftOffsetY + strokeLength / 2 - 5;
+        topLeftSerifMesh.position.x = leftOffsetX + (strokeLength / 2) * Math.sin(vAngle) - serifLength / 2;
+        topLeftSerifMesh.position.y = leftOffsetY + (strokeLength / 2) * Math.cos(vAngle);
         topLeftSerifMesh.castShadow = true;
         topLeftSerifMesh.receiveShadow = true;
         group.add(topLeftSerifMesh);
 
-        // Top-right serif (horizontal bar at top of right stroke)
+        // Top-right serif (at the endpoint of right stroke - visual top prong)
         const topRightSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
         const topRightSerifMesh = new THREE.Mesh(topRightSerifGeometry, material);
-        topRightSerifMesh.position.x = rightOffsetX + serifLength / 2 + 12;
-        topRightSerifMesh.position.y = rightOffsetY + strokeLength / 2 - 5;
+        topRightSerifMesh.position.x = rightOffsetX - (strokeLength / 2) * Math.sin(vAngle) + serifLength / 2;
+        topRightSerifMesh.position.y = rightOffsetY + (strokeLength / 2) * Math.cos(vAngle);
         topRightSerifMesh.castShadow = true;
         topRightSerifMesh.receiveShadow = true;
         group.add(topRightSerifMesh);
