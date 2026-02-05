@@ -69,29 +69,38 @@ class VShape3D {
 
         // Dimensions
         const strokeWidth = 12;
-        const strokeLength = 120;
-        const serifLength = 35;
+        const strokeLength = 140;
+        const serifLength = 38;
         const serifHeight = 8;
-        const vAngle = 0.42; // Angle for each diagonal
+        const vAngle = 0.40; // Angle for each diagonal
+
+        // Convergence point at bottom center
+        const convergeX = 0;
+        const convergeY = -65;
+
+        // Calculate positions so strokes' bottom endpoints meet at convergence point
+        // For a rotated box, bottom point is at: center - (length/2)*sin(angle), center - (length/2)*cos(angle)
+        // So to converge at (0, -65): centerX + (length/2)*sin(angle) = 0, centerY + (length/2)*cos(angle) = -65
+        const leftOffsetX = convergeX + (strokeLength / 2) * Math.sin(vAngle);
+        const leftOffsetY = convergeY + (strokeLength / 2) * Math.cos(vAngle);
 
         // Left diagonal stroke
         const leftGeometry = new THREE.BoxGeometry(strokeWidth, strokeLength, strokeWidth);
         const leftMesh = new THREE.Mesh(leftGeometry, material);
         leftMesh.rotation.z = vAngle;
-        const leftOffsetX = -strokeLength * Math.sin(vAngle) / 2 - 8;
-        const leftOffsetY = strokeLength * Math.cos(vAngle) / 2 - 15;
         leftMesh.position.x = leftOffsetX;
         leftMesh.position.y = leftOffsetY;
         leftMesh.castShadow = true;
         leftMesh.receiveShadow = true;
         group.add(leftMesh);
 
-        // Right diagonal stroke
+        // Right diagonal stroke (mirror)
+        const rightOffsetX = convergeX - (strokeLength / 2) * Math.sin(vAngle);
+        const rightOffsetY = convergeY + (strokeLength / 2) * Math.cos(vAngle);
+
         const rightGeometry = new THREE.BoxGeometry(strokeWidth, strokeLength, strokeWidth);
         const rightMesh = new THREE.Mesh(rightGeometry, material);
         rightMesh.rotation.z = -vAngle;
-        const rightOffsetX = strokeLength * Math.sin(vAngle) / 2 + 8;
-        const rightOffsetY = strokeLength * Math.cos(vAngle) / 2 - 15;
         rightMesh.position.x = rightOffsetX;
         rightMesh.position.y = rightOffsetY;
         rightMesh.castShadow = true;
@@ -101,7 +110,7 @@ class VShape3D {
         // Top-left serif (horizontal bar at top of left stroke)
         const topLeftSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
         const topLeftSerifMesh = new THREE.Mesh(topLeftSerifGeometry, material);
-        topLeftSerifMesh.position.x = leftOffsetX - serifLength / 2 - 10;
+        topLeftSerifMesh.position.x = leftOffsetX - serifLength / 2 - 12;
         topLeftSerifMesh.position.y = leftOffsetY + strokeLength / 2 - 5;
         topLeftSerifMesh.castShadow = true;
         topLeftSerifMesh.receiveShadow = true;
@@ -110,17 +119,17 @@ class VShape3D {
         // Top-right serif (horizontal bar at top of right stroke)
         const topRightSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
         const topRightSerifMesh = new THREE.Mesh(topRightSerifGeometry, material);
-        topRightSerifMesh.position.x = rightOffsetX + serifLength / 2 + 10;
+        topRightSerifMesh.position.x = rightOffsetX + serifLength / 2 + 12;
         topRightSerifMesh.position.y = rightOffsetY + strokeLength / 2 - 5;
         topRightSerifMesh.castShadow = true;
         topRightSerifMesh.receiveShadow = true;
         group.add(topRightSerifMesh);
 
-        // Bottom serif (horizontal bar at point of V)
-        const bottomSerifGeometry = new THREE.BoxGeometry(serifLength * 1.3, serifHeight, strokeWidth);
+        // Bottom serif (horizontal bar at point of V where they converge)
+        const bottomSerifGeometry = new THREE.BoxGeometry(serifLength * 1.5, serifHeight, strokeWidth);
         const bottomSerifMesh = new THREE.Mesh(bottomSerifGeometry, material);
-        bottomSerifMesh.position.x = 0;
-        bottomSerifMesh.position.y = -strokeLength / 2 + 15;
+        bottomSerifMesh.position.x = convergeX;
+        bottomSerifMesh.position.y = convergeY - 10;
         bottomSerifMesh.castShadow = true;
         bottomSerifMesh.receiveShadow = true;
         group.add(bottomSerifMesh);
