@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Constitutional Convention Conference - Harvard Law School</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <!-- Hero Section -->
+    <!-- Hero Section with 3D Canvas -->
     <section class="hero">
-        <div class="hero-watermark"></div>
+        <canvas id="hero3dCanvas"></canvas>
         <div class="hero-content">
-            <h1><span class="v-italic">V</span> the People</h1>
             <p class="subtitle">Constitutional Amendment for Democratic Change</p>
 
             <div class="event-info-grid">
@@ -226,6 +226,7 @@
         </div>
     </footer>
 
+    <script src="js/hero3d.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
