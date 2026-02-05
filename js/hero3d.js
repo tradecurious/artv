@@ -111,7 +111,7 @@ class VShape3D {
         const topLeftSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
         const topLeftSerifMesh = new THREE.Mesh(topLeftSerifGeometry, material);
         topLeftSerifMesh.position.x = leftOffsetX - serifLength / 2 - 12;
-        topLeftSerifMesh.position.y = -(leftOffsetY + strokeLength / 2 - 5);
+        topLeftSerifMesh.position.y = leftOffsetY + strokeLength / 2 - 5;
         topLeftSerifMesh.castShadow = true;
         topLeftSerifMesh.receiveShadow = true;
         group.add(topLeftSerifMesh);
@@ -120,7 +120,7 @@ class VShape3D {
         const topRightSerifGeometry = new THREE.BoxGeometry(serifLength, serifHeight, strokeWidth);
         const topRightSerifMesh = new THREE.Mesh(topRightSerifGeometry, material);
         topRightSerifMesh.position.x = rightOffsetX + serifLength / 2 + 12;
-        topRightSerifMesh.position.y = -(rightOffsetY + strokeLength / 2 - 5);
+        topRightSerifMesh.position.y = rightOffsetY + strokeLength / 2 - 5;
         topRightSerifMesh.castShadow = true;
         topRightSerifMesh.receiveShadow = true;
         group.add(topRightSerifMesh);
