@@ -183,38 +183,94 @@ body {
 
 /* Listserv Section */
 .listserv-section {
-    padding: 60px 20px;
-    background: linear-gradient(to right, #c62b38 0%, var(--old-glory-red) 100%);
+    padding: 120px 20px;
+    background: #1a1a1a;
     text-align: center;
 }
 
-.listserv-ctas {
+.listserv-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.listserv-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #999999;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.listserv-section h2 {
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+    font-weight: 400;
+    font-family: Georgia, serif;
+    color: var(--old-glory-white);
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.listserv-section p {
+    font-size: 1.15rem;
+    color: #cccccc;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.listserv-form-wrapper {
     display: flex;
     gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
     align-items: stretch;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .listserv-form {
-    display: flex;
-    gap: 0;
+    flex: 1;
+    min-width: 400px;
 }
 
 .listserv-form input {
-    min-width: 250px;
-    padding: 14px 20px;
+    width: 100%;
+    padding: 20px 25px;
     font-size: 1rem;
-    border: 2px solid var(--old-glory-blue);
-    border-radius: 4px 0 0 4px;
-    background: var(--old-glory-white);
-    color: var(--dark-text);
+    border: 2px solid #444444;
+    border-radius: 0;
+    background: transparent;
+    color: var(--old-glory-white);
     transition: border-color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.listserv-form input::placeholder {
+    color: #888888;
 }
 
 .listserv-form input:focus {
     outline: none;
-    border-color: var(--old-glory-red);
+    border-color: #666666;
+}
+
+.btn-subscribe {
+    padding: 20px 45px;
+    background: var(--old-glory-red);
+    color: var(--old-glory-white);
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    min-width: 200px;
+}
+
+.btn-subscribe:hover {
+    background: #a01c2e;
 }
 
 .btn-primary {
@@ -632,27 +688,30 @@ body {
         gap: 40px;
     }
 
-    .listserv-form {
-        width: 100%;
+    .listserv-section {
+        padding: 80px 20px;
     }
 
-    .listserv-form input {
-        min-width: 100%;
-        border-radius: 4px 4px 0 0;
+    .listserv-section h2 {
+        font-size: 2rem;
     }
 
-    .listserv-ctas {
+    .listserv-section p {
+        font-size: 1rem;
+    }
+
+    .listserv-form-wrapper {
         flex-direction: column;
-        width: 100%;
+        gap: 15px;
     }
 
-    .btn-primary {
-        width: 100%;
-        border-radius: 0 0 4px 4px;
+    .listserv-form {
+        min-width: 100%;
     }
 
-    .btn-secondary {
+    .btn-subscribe {
         width: 100%;
+        padding: 18px 30px;
     }
 
     .speakers-grid {
