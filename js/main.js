@@ -57,22 +57,22 @@ if (navLeftBtn && navRightBtn && carousel) {
     document.querySelectorAll('.speaker-image-container').forEach(imageContainer => {
         imageContainer.addEventListener('mouseenter', () => {
             if (carouselAnimationStarted) {
-                carousel.style.animation = 'none';
+                carousel.style.animationPlayState = 'paused';
             }
         });
 
         imageContainer.addEventListener('mouseleave', () => {
             if (carouselAnimationStarted) {
-                carousel.style.animation = 'carousel-scroll 40s linear infinite';
+                carousel.style.animationPlayState = 'running';
             }
         });
     });
 
-    // Resume animation after button click or section leave
+    // Resume animation after section leave
     const container = document.querySelector('.speakers-carousel-container');
     container.addEventListener('mouseleave', () => {
         if (carouselAnimationStarted) {
-            carousel.style.animation = 'carousel-scroll 40s linear infinite';
+            carousel.style.animationPlayState = 'running';
         }
     });
 }
