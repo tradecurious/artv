@@ -1,14 +1,8 @@
 // Initialize Supabase client
-// Replace these with your actual Supabase project credentials
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://dnkdbwxsygtptwbemydc.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_a2n4QNMl1NcgkG__6-GHcg_e2YZHYnZ';
 
-let supabase = null;
-
-// Only initialize if credentials are set
-if (SUPABASE_URL !== 'YOUR_SUPABASE_URL' && SUPABASE_ANON_KEY !== 'YOUR_SUPABASE_ANON_KEY') {
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-}
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Listserv Form Handler
 document.getElementById('listservForm').addEventListener('submit', async function(e) {
