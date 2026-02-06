@@ -2,11 +2,20 @@
 const SUPABASE_URL = 'https://dnkdbwxsygtptwbemydc.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRua2Rid3hzeWd0cHR3YmVteWRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAzMjMyMDEsImV4cCI6MjA4NTg5OTIwMX0.hAWLFTJApDZDi4P1WlqzlME7ILFg5wvj58qyBDnUR30';
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+let supabase;
+
+// Wait for Supabase library to load
+if (window.supabase && window.supabase.createClient) {
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log('Supabase initialized successfully');
+} else {
+    console.error('Supabase library not loaded');
+}
 
 // Listserv Form Handler
 document.getElementById('listservForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    e.stopPropagation();
     const email = document.getElementById('email').value;
     const submitBtn = document.querySelector('.btn-subscribe');
     const originalText = submitBtn.textContent;
