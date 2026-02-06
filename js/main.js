@@ -4,85 +4,107 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 let supabase;
 
-// Wait for Supabase library to load
-if (window.supabase && window.supabase.createClient) {
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    console.log('Supabase initialized successfully');
-} else {
-    console.error('Supabase library not loaded');
+// Initialize Supabase when library is ready
+function initSupabase() {
+    if (window.supabase && window.supabase.createClient) {
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        console.log('✅ Supabase initialized successfully');
+        return true;
+    } else {
+        console.error('❌ Supabase library not loaded');
+        return false;
+    }
 }
 
+// Try to initialize immediately
+initSupabase();
+
 // Listserv Form Handler
-document.getElementById('listservForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    const email = document.getElementById('email').value;
-    const submitBtn = document.querySelector('.btn-subscribe');
-    const originalText = submitBtn.textContent;
+const form = document.getElementById('listservForm');
+console.log('📝 Form element found:', !!form);
 
-    console.log('Form submitted with email:', email);
-    console.log('Supabase client initialized:', !!supabase);
+if (form) {
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-    // Disable button during submission
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Subscribing...';
+        console.log('🚀 Form submit handler called');
 
-    try {
+        // Re-initialize Supabase if needed
         if (!supabase) {
-            throw new Error('Supabase not configured. Please set up your credentials in main.js');
+            initSupabase();
         }
 
-        console.log('Attempting to insert email into Supabase...');
+        const email = document.getElementById('email').value;
+        const submitBtn = document.querySelector('.btn-subscribe');
+        const originalText = submitBtn.textContent;
 
-        // Insert email into Supabase
-        const { data, error } = await supabase
-            .from('mailing_list')
-            .insert([
-                {
-                    email: email,
-                    subscribed_at: new Date().toISOString()
-                }
-            ])
-            .select();
+        console.log('Form submitted with email:', email);
+        console.log('Supabase client initialized:', !!supabase);
 
-        console.log('Supabase response:', { data, error });
+        // Disable button during submission
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Subscribing...';
 
-        if (error) {
-            console.error('Supabase error details:', error);
-
-            // Check if it's a duplicate email error
-            if (error.code === '23505') {
-                alert('This email is already subscribed!');
-            } else if (error.code === '42P01') {
-                alert('Database table not found. Please run the setup SQL in your Supabase dashboard first.');
-                console.error('Table "mailing_list" does not exist. Run supabase_setup.sql in your Supabase SQL Editor.');
-            } else {
-                throw error;
+        try {
+            if (!supabase) {
+                throw new Error('Supabase not configured. Please set up your credentials in main.js');
             }
-        } else {
-            console.log('Email successfully added:', data);
 
-            // Clear the form
-            this.reset();
+            console.log('Attempting to insert email into Supabase...');
 
-            // Show success message
-            alert('Thank you for joining our mailing list!');
+            // Insert email into Supabase
+            const { data, error } = await supabase
+                .from('mailing_list')
+                .insert([
+                    {
+                        email: email,
+                        subscribed_at: new Date().toISOString()
+                    }
+                ])
+                .select();
+
+            console.log('Supabase response:', { data, error });
+
+            if (error) {
+                console.error('Supabase error details:', error);
+
+                // Check if it's a duplicate email error
+                if (error.code === '23505') {
+                    alert('This email is already subscribed!');
+                } else if (error.code === '42P01') {
+                    alert('Database table not found. Please run the setup SQL in your Supabase dashboard first.');
+                    console.error('Table "mailing_list" does not exist. Run supabase_setup.sql in your Supabase SQL Editor.');
+                } else {
+                    throw error;
+                }
+            } else {
+                console.log('Email successfully added:', data);
+
+                // Clear the form
+                this.reset();
+
+                // Show success message
+                alert('Thank you for joining our mailing list!');
+            }
+        } catch (error) {
+            console.error('Error submitting email:', error);
+            console.error('Error details:', {
+                message: error.message,
+                code: error.code,
+                details: error.details,
+                hint: error.hint
+            });
+            alert('There was an error subscribing. Please check the browser console (F12) for details.');
+        } finally {
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
         }
-    } catch (error) {
-        console.error('Error submitting email:', error);
-        console.error('Error details:', {
-            message: error.message,
-            code: error.code,
-            details: error.details,
-            hint: error.hint
-        });
-        alert('There was an error subscribing. Please check the browser console (F12) for details.');
-    } finally {
-        // Re-enable button
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-    }
-});
+    });
+} else {
+    console.error('❌ Form element not found!');
+}
 
 // Carousel animation - start on scroll with 2-second delay
 const carousel = document.getElementById('speakersCarousel');
