@@ -1,13 +1,13 @@
 // Initialize Supabase client
-const SUPABASE_URL = 'https://dnkdbwxsygtptwbemydc.supabase.co';
+const SUPABASE_URL = 'https://dnkdbwxsygtptwbemydc.supabaseClient.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRua2Rid3hzeWd0cHR3YmVteWRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAzMjMyMDEsImV4cCI6MjA4NTg5OTIwMX0.hAWLFTJApDZDi4P1WlqzlME7ILFg5wvj58qyBDnUR30';
 
-let supabase;
+let supabaseClientClient;
 
 // Initialize Supabase when library is ready
 function initSupabase() {
     if (window.supabase && window.supabase.createClient) {
-        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        supabaseClientClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         console.log('✅ Supabase initialized successfully');
         return true;
     } else {
@@ -31,7 +31,7 @@ if (form) {
         console.log('🚀 Form submit handler called');
 
         // Re-initialize Supabase if needed
-        if (!supabase) {
+        if (!supabaseClient) {
             initSupabase();
         }
 
@@ -40,21 +40,21 @@ if (form) {
         const originalText = submitBtn.textContent;
 
         console.log('Form submitted with email:', email);
-        console.log('Supabase client initialized:', !!supabase);
+        console.log('Supabase client initialized:', !!supabaseClient);
 
         // Disable button during submission
         submitBtn.disabled = true;
         submitBtn.textContent = 'Subscribing...';
 
         try {
-            if (!supabase) {
+            if (!supabaseClient) {
                 throw new Error('Supabase not configured. Please set up your credentials in main.js');
             }
 
             console.log('Attempting to insert email into Supabase...');
 
             // Insert email into Supabase
-            const { data, error } = await supabase
+            const { data, error } = await supabaseClient
                 .from('mailing_list')
                 .insert([
                     {
@@ -74,7 +74,7 @@ if (form) {
                     alert('This email is already subscribed!');
                 } else if (error.code === '42P01') {
                     alert('Database table not found. Please run the setup SQL in your Supabase dashboard first.');
-                    console.error('Table "mailing_list" does not exist. Run supabase_setup.sql in your Supabase SQL Editor.');
+                    console.error('Table "mailing_list" does not exist. Run supabaseClient_setup.sql in your Supabase SQL Editor.');
                 } else {
                     throw error;
                 }
