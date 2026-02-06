@@ -11,6 +11,9 @@ document.getElementById('listservForm').addEventListener('submit', async functio
     const submitBtn = document.querySelector('.btn-subscribe');
     const originalText = submitBtn.textContent;
 
+    console.log('Form submitted with email:', email);
+    console.log('Supabase client initialized:', !!supabase);
+
     // Disable button during submission
     submitBtn.disabled = true;
     submitBtn.textContent = 'Subscribing...';
@@ -19,6 +22,8 @@ document.getElementById('listservForm').addEventListener('submit', async functio
         if (!supabase) {
             throw new Error('Supabase not configured. Please set up your credentials in main.js');
         }
+
+        console.log('Attempting to insert email into Supabase...');
 
         // Insert email into Supabase
         const { data, error } = await supabase
@@ -31,14 +36,23 @@ document.getElementById('listservForm').addEventListener('submit', async functio
             ])
             .select();
 
+        console.log('Supabase response:', { data, error });
+
         if (error) {
+            console.error('Supabase error details:', error);
+
             // Check if it's a duplicate email error
             if (error.code === '23505') {
                 alert('This email is already subscribed!');
+            } else if (error.code === '42P01') {
+                alert('Database table not found. Please run the setup SQL in your Supabase dashboard first.');
+                console.error('Table "mailing_list" does not exist. Run supabase_setup.sql in your Supabase SQL Editor.');
             } else {
                 throw error;
             }
         } else {
+            console.log('Email successfully added:', data);
+
             // Clear the form
             this.reset();
 
@@ -47,7 +61,13 @@ document.getElementById('listservForm').addEventListener('submit', async functio
         }
     } catch (error) {
         console.error('Error submitting email:', error);
-        alert('There was an error subscribing. Please try again later.');
+        console.error('Error details:', {
+            message: error.message,
+            code: error.code,
+            details: error.details,
+            hint: error.hint
+        });
+        alert('There was an error subscribing. Please check the browser console (F12) for details.');
     } finally {
         // Re-enable button
         submitBtn.disabled = false;
