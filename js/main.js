@@ -53,21 +53,19 @@ if (form) {
 
             console.log('Attempting to insert email into Supabase...');
 
-            // Insert email into Supabase
+            // Insert email into Supabase (only email field, let DB handle timestamps)
             const { data, error } = await supabaseClient
                 .from('mailing_list')
-                .insert([
-                    {
-                        email: email,
-                        subscribed_at: new Date().toISOString()
-                    }
-                ])
+                .insert([{ email: email }])
                 .select();
 
             console.log('Supabase response:', { data, error });
 
             if (error) {
                 console.error('Supabase error details:', error);
+                console.error('Error code:', error.code);
+                console.error('Error message:', error.message);
+                console.error('Error hint:', error.hint);
 
                 // Check if it's a duplicate email error
                 if (error.code === '23505') {
@@ -75,6 +73,9 @@ if (form) {
                 } else if (error.code === '42P01') {
                     alert('Database table not found. Please run the setup SQL in your Supabase dashboard first.');
                     console.error('Table "mailing_list" does not exist. Run supabase_setup.sql in your Supabase SQL Editor.');
+                } else if (error.code === '42501' || error.message?.includes('permission') || error.message?.includes('policy')) {
+                    alert('Permission denied. The RLS policy may need to be updated.');
+                    console.error('RLS Policy blocking insert. Run fix_policies.sql in your Supabase SQL Editor.');
                 } else {
                     throw error;
                 }
