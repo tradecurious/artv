@@ -1,0 +1,11 @@
+services:
+  - type: worker
+    name: supabase-keepalive
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python keepalive.py
+    envVars:
+      - key: SUPABASE_URL
+        value: https://dnkdbwxsygtptwbemydc.supabase.co
+      - key: SUPABASE_KEY
+        sync: false  # Set this manually in Render dashboard (keep key out of git)
