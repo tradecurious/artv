@@ -1,0 +1,25 @@
+name: Supabase Keepalive
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9am UTC (every ~6 days is fine, weekly is simpler)
+  workflow_dispatch:      # Allow manual trigger to test it
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase
+        run: |
+          echo "Pinging Supabase at $(date)"
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
+            "${{ secrets.SUPABASE_URL }}/rest/v1/mailing_list?select=count&limit=1" \
+            -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}")
+          echo "Response status: $RESPONSE"
+          if [ "$RESPONSE" = "200" ]; then
+            echo "✅ Ping successful!"
+          else
+            echo "❌ Ping failed with status $RESPONSE"
+            exit 1
+          fi
