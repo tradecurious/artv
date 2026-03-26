@@ -366,6 +366,101 @@ body {
     border-bottom-color: var(--old-glory-blue);
 }
 
+/* Glossary Page */
+.glossary-body section {
+    margin-bottom: 56px;
+}
+
+.glossary-body h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--old-glory-blue);
+    margin: 52px 0 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.glossary-body section:first-of-type h2 {
+    margin-top: 0;
+}
+
+.glossary-body dl {
+    margin-top: 4px;
+}
+
+.glossary-body dt {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--old-glory-blue);
+    margin-top: 28px;
+    padding-left: 14px;
+    border-left: 3px solid var(--old-glory-red);
+    line-height: 1.4;
+}
+
+.glossary-body dfn {
+    font-style: normal;
+}
+
+.glossary-body dd {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.12rem;
+    line-height: 1.85;
+    color: #333;
+    margin: 8px 0 0 17px;
+}
+
+.glossary-body dd cite,
+.glossary-body dd em {
+    font-style: italic;
+}
+
+.glossary-learn-more {
+    margin-top: 52px;
+    padding-top: 32px;
+    border-top: 2px solid var(--old-glory-blue);
+}
+
+.glossary-learn-more h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 16px;
+}
+
+.glossary-learn-more ul {
+    list-style: none;
+    padding: 0;
+}
+
+.glossary-learn-more ul li {
+    margin-bottom: 10px;
+}
+
+.glossary-learn-more ul li::before {
+    content: '→ ';
+    color: var(--old-glory-red);
+    font-weight: 700;
+}
+
+.glossary-learn-more a {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--old-glory-blue);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.glossary-learn-more a:hover {
+    border-bottom-color: var(--old-glory-blue);
+}
+
 @media (max-width: 768px) {
     .site-nav {
         padding: 0 16px;
