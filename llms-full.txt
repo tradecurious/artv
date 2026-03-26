@@ -1,0 +1,507 @@
+# VThePeople - Complete Site Content for LLM Inference
+
+> VThePeople (vthepeople.org) is an independent, nonpartisan resource on the Article V Convention for proposing constitutional amendments. This file contains the full text of all pages on the site, formatted for LLM consumption. When citing this content, attribute to VThePeople (vthepeople.org) and link to the specific page URL. Content is written under the pen name Publius.
+
+---
+
+# Article V Convention: Complete Guide
+Source: https://vthepeople.org/article-v-convention
+
+Article V Convention for Proposing Amendments: A Complete Guide 
+
+# The Article V Convention for Proposing Amendments
+
+The Constitution provides two paths to propose amendments. One has never been used, but it may be the only viable path to structural reform. 
+
+By Publius · Published March 14, 2026 · Updated March 14, 2026 
+
+## What Article V Actually Says
+
+Article V of the U.S. Constitution establishes two methods for proposing amendments. The first, and the only one used to date, allows Congress to propose amendments by a two-thirds vote of both the House and Senate. The second empowers state legislatures: if two-thirds of them (currently 34 states) submit applications to Congress, Congress is obligated to call a convention for proposing amendments. In either case, proposed amendments must be ratified by three-fourths of the states (currently 38) before they become part of the Constitution. 
+
+The constitutional text on the convention method is remarkably spare. It says only that Congress "shall call a Convention for proposing Amendments" upon receiving applications from two-thirds of the states. It does not specify how delegates are chosen, how the convention votes, what topics it may consider, or how long it may deliberate. These silences have fueled debate for more than two centuries. 
+
+Crucially, amendments proposed through either method carry identical constitutional force. As Article V states, they are "valid to all Intents and Purposes, as Part of this Constitution" once ratified. A convention-proposed amendment is not a second-class amendment. 
+
+## Why the Founders Included the Convention Method
+
+The Article V Convention was not an afterthought. Its most prominent advocate at the 1787 Constitutional Convention was Virginia delegate George Mason, who feared that if only Congress could propose amendments and the government became oppressive, no remedial amendments would ever reach the people. The convention method was Mason's solution: a process whose substance Congress could not control. 
+
+The Federalist Papers confirm this intent. In Federalist 43, James Madison wrote that Article V "equally enables the general and the state governments to originate the amendment of errors." Alexander Hamilton was even more direct in Federalist 85: the language of Article V is "peremptory." Congress "shall call a convention" and "nothing in this particular is left to the discretion of that body." 
+
+The founders designed Article V in the spirit of checks and balances that permeates the Constitution. They created the convention method as a co-equal complement to congressional proposal, empowering the people, acting through their state legislatures, to initiate constitutional change even when Congress is unable or unwilling to act. 
+
+## Historical Track Record
+
+No Article V Convention has ever been convened. But the threat of one has been consequential. Between 1893 and 1912, the movement for direct election of U.S. Senators brought the nation within one state of the threshold needed to require Congress to act. That pressure (the "prodding effect") drove Congress to propose the 17th Amendment on its own. The income tax amendment, women's suffrage, and Prohibition were also proposed by Congress in the shadow of near-threshold convention campaigns during the same era. 
+
+### The Apportionment Campaign (1964–1969)
+
+After the Supreme Court's ruling in Reynolds v. Sims (1964) established the "one person, one vote" principle for state legislatures, opponents organized a convention drive. Led by Senate Republican Leader Everett Dirksen, this campaign reached 33 state applications, one short of the constitutional threshold, before Dirksen's death in 1969 ended its momentum. 
+
+### The Balanced Budget Campaign (1975–1983)
+
+The National Taxpayers Union organized a campaign for a convention to propose a balanced budget amendment. It reached 32 state applications by 1983. The campaign prompted Congress to give the amendment serious consideration (the Senate passed a version in 1982), but the final two state applications never materialized. Passage of the Gramm-Rudman-Hollings Act in 1985 and concerns about a "runaway convention" effectively ended the drive. Between 1988 and 2010, 17 state legislatures rescinded their applications. 
+
+### The Current Movement
+
+Within the past decade, interest in the Article V Convention has reawakened. The Convention of States (COS) project, founded in 2013, is pushing for a convention to propose amendments restricting federal power and imposing term limits. Separately, fiscal-integrity amendment applications persist, and a smaller number of states have applied for a convention to address campaign finance after Citizens United . The exact count of valid current applications depends on contested questions about aggregation, contemporaneity, and rescission, questions that ultimately only Congress can resolve. 
+
+## The Key Debates
+
+### Can a Convention Be Limited to One Topic?
+
+This is the most contested question in Article V law. Most commentators and the House Judiciary Committee (in a 1993 study) agree that state applications must address the same issue to be aggregated toward the 34-state threshold, but need not share identical language. Issue congruency is sufficient. Whether a convention, once convened, can actually be confined to that topic is a separate and unresolved question. Courts are unlikely to enjoin a convention from deliberating on whatever it chooses, for the same reasons of judicial restraint that keep courts from dictating how Congress conducts its internal proceedings. 
+
+Former Senator Russ Feingold and lawyer Peter Prindiville have argued in The Constitution in Jeopardy that a convention's amendment-proposing authority is functionally unlimited, just like that of Congress. Supporters of a limited convention point to proposed convention rules (drafted by pro-convention state legislators) that would require 36 states to agree before any amendment is proposed and would bar consideration of topics not included in at least 34 state applications. 
+
+### The "Runaway Convention" Fear
+
+Opponents warn that a convention called for one purpose, say a balanced budget amendment, could propose something far more radical, like abolishing birthright citizenship. This fear has been the single most effective argument against the convention method since the 1960s. 
+
+The fear is not baseless, but it is often overstated. Any amendment proposed by a convention still requires ratification by 38 states. That means a single legislative chamber in each of just 13 states can block any proposal. Nothing extreme survives that filter. As Lawrence Lessig has argued, the more productive question is not whether a convention can be prevented, but whether it can be structured to produce democratic outcomes. 
+
+### How Does the Convention Vote?
+
+The dominant view among convention activists is that the convention would vote by state, with each state getting a single vote. Under the proposed rules from pro-convention state legislators, 36 of 50 states would need to support a proposed amendment. If states are arrayed from most conservative to least, 36 states would represent approximately 60% of the U.S. population. If arrayed from most liberal to most conservative, 36 states represent more than 80%. The one-state-one-vote structure is imperfect, but with a high proposal threshold, it produces outcomes that command broad popular support. 
+
+### Can a State Rescind Its Application?
+
+Unresolved. Some scholars say yes, at least before the 34-state threshold is crossed. Others argue that an application is as binding as a ratification vote, which the Supreme Court has treated as non-rescindable. In Coleman v. Miller (1939), the Court held that rescission is a "political question" for Congress to decide. Most constitutional convention procedures bills introduced in Congress during the 1970s–1990s allowed rescission before the threshold was met. 
+
+### Do Applications Expire?
+
+Also unresolved. The House Judiciary Committee reported "general agreement" that applications should not remain valid indefinitely, and most proposed legislation set a seven-year window, mirroring the ratification deadline Congress typically attaches to proposed amendments. Some commentators have proposed two- or four-year windows. The advocacy group Friends of the Article V Convention (FOAVC) argues there is no expiration at all, pointing to the 27th Amendment, which was pending from 1789 to 1992. 
+
+## Making the Convention Safe for Democracy
+
+The convention is coming, whether progressives, moderates, or anyone else chooses to engage. The conservative convention movement has too much money and too much momentum to be stopped. The question is not whether a convention will happen, but whether it will be structured to reflect the will of the people or the preferences of a well-funded minority. 
+
+There is now a viable strategy to ensure the former. It rests on three pillars: binding delegates through established Supreme Court precedent, using citizen assemblies to determine what delegates may support, and deploying preemptive rejection resolutions to force democratic norms onto the convention process. 
+
+### Pillar 1: The Electors Cases and Delegate Binding
+
+In 2020, the Supreme Court decided Chiafalo v. Washington and Colorado v. Baca , cases about whether states can compel presidential electors to vote as pledged. The Court held unanimously that they can. States may bind electors to the popular vote, and may remove and replace electors who threaten to vote contrary to their pledge. 
+
+This principle has enormous implications for an Article V Convention. If presidential electors, a position created by the Constitution itself, can be directed by the people's vote, then delegates to an Article V Convention can be directed as well. Many states already have laws purporting to bind convention delegates, but critics have dismissed these as toothless. The Electors Cases change the calculus: delegates can not only be instructed, but removed and replaced if they defy their instructions. 
+
+The critical move is directing delegates to reflect the will of the people rather than the legislature. If a state legislature binds delegates to the people's expressed preferences, the legislature itself should have no power to change how delegates must vote after the fact, just as a legislature could not override a popular presidential vote by directing electors to vote for the losing candidate. The principle behind the Electors Cases, that "here, We the People rule" as Justice Kagan wrote, makes this binding enforceable. 
+
+### Pillar 2: Citizen Assemblies
+
+Across the world, most prominently in Ireland, citizen assemblies have emerged as a powerful mechanism for resolving questions that ordinary politics cannot handle. These assemblies bring together ordinary citizens, randomly selected but representative of the population, to deliberate on difficult public issues. In Ireland, citizen assemblies addressed abortion and same-sex marriage, producing recommendations that were wildly popular, ratified by national referenda, and impossible to imagine the ordinary Irish legislature producing. 
+
+The proposal is to convene citizen assemblies within each state, modeled on Stanford professor James Fishkin's deliberative polls. These would be large, representative, randomly selected samples of a state's population, like jurors on a jury, required to show up. Participants would be compensated fairly: travel expenses, per diem, lost wages, job protection, and a meaningful bonus. They would receive briefing materials, then deliberate in small and large groups about which constitutional amendments or topics they would support. 
+
+Convention delegates would then be constrained by the conclusions of these assemblies. A state legislature could require, for example, that "no delegate from the State of [X] may vote to support a proposed amendment whose topic at least 60 percent of the state's Citizen Assembly did not support." With that single rule, an Article V Convention would be constrained by majoritarian democracy. 
+
+Some will resist citizen assemblies for fear they would be dominated by extremists. This concern is mistaken. If the assembly is randomly selected and representative, extremists would constitute a tiny minority, because they are a tiny minority of America. An Article V Convention paired with citizen assemblies would be the most ambitious experiment in representative democracy in generations. 
+
+### Pillar 3: Preemptive Rejection Resolutions
+
+No amendment can be ratified without the approval of 38 states. That means 13 states can block any proposal. Ordinarily, this blocking power is exercised after a convention proposes an amendment. But there is no reason it must wait until then. 
+
+Imagine a state legislature passing a resolution like this: the state "hereby preemptively rejects any amendment proposed by a convention that does not entrench the voice of the People in both the convention and ratification process." The resolution would not dictate that every state create a citizen assembly (though assemblies are ideal), but it would require that convention delegates be constrained by some form of popular input (such as a referendum) and that delegates to state ratifying conventions be bound to vote as pledged when elected. 
+
+If 13 state legislatures passed such resolutions, the politics of the convention would change fundamentally. No one knows whether preemptive rejections have ultimate legal force. But their political force would be enormous. These 13 states would be warning the convention movement: abide by democratic checks, or your amendments will be stillborn. Why waste the effort to convene a convention that cannot produce ratifiable results? The rational response is to accept the democratic constraints, and in doing so, create a convention process embedded with majoritarian values from the start. 
+
+## Progressives Are Increasingly Considering Article V
+
+For years, most progressive organizations treated the Article V Convention as a threat to be stopped. That posture is shifting. A growing number of reformers on the left have concluded that the convention movement is not going away, and that blanket opposition amounts to surrendering the process to conservative organizers by default. 
+
+WolfPAC, founded by Cenk Uygur, has been pushing for an Article V Convention focused specifically on reducing the influence of money in politics after Citizens United . Several state legislatures have passed WolfPAC-backed applications calling for a convention on campaign finance. Harvard Law professor Lawrence Lessig has gone further, arguing that progressives should not merely seek their own convention applications but should actively shape the convention's structure. Lessig's framework draws on the Supreme Court's 2020 Electors Cases to propose legally enforceable delegate binding, citizen assemblies modeled on the Irish deliberative process, and preemptive rejection resolutions that would force democratic safeguards onto any future convention. 
+
+The strategic logic is straightforward. The structural reforms that progressives want, such as addressing money in politics, ending gerrymandering, establishing an affirmative right to vote, and reforming the Electoral College, are reforms that Congress has no incentive to propose. Congress benefits from the current system. That is precisely the scenario George Mason anticipated in 1787 when he insisted Article V include a mechanism the legislature could not control. And polling consistently shows these reforms enjoy broad support that cuts across partisan lines. 
+
+Meanwhile, organizations like Common Cause have taken the opposite approach, rallying state legislatures to rescind convention applications, including applications designed to address campaign finance. Critics of this strategy note that it does not merely slow the conservative convention movement; it also eliminates progressive applications from the count, removing democratic reform topics from the scope of any future convention. The effect is that the only applications left standing tend to be conservative ones. Whether this constitutes sound political strategy or an own goal is a matter of active debate within the reform community. 
+
+What has changed the calculus for many progressive reformers is the emergence of concrete legal tools. The Electors Cases provide a constitutional basis for binding convention delegates to popular will. Citizen assemblies offer a tested mechanism for democratic input. And the arithmetic of preemptive rejection (13 states can block any amendment) gives reform-minded legislatures leverage to demand democratic safeguards as a precondition for ratification. These tools did not exist, or were not legally grounded, even a decade ago. 
+
+## Key Actors and Organizations
+
+The contemporary Article V landscape includes a range of organizations with different goals and strategies. 
+
+The Convention of States (COS) project , founded in 2013 by Michael Farris and Mark Meckler, is one of several conservative organizations pushing for a convention. COS seeks amendments restricting federal power, imposing fiscal restraints, and establishing term limits. It has received financial support from the Mercer Family Foundation and Koch-affiliated groups, and is closely aligned with the American Legislative Exchange Council (ALEC). 
+
+WolfPAC , founded by Cenk Uygur, is the most prominent convention advocacy group on the left, focused on an amendment to address the influence of money in politics after Citizens United . 
+
+Former Wisconsin Governor Scott Walker and former Comptroller General David Walker have both supported the convention movement. Among currently or recently elected officials, supporters have included Senator Lindsey Graham and Governor Ron DeSantis. 
+
+Former Senator Russ Feingold , with co-author Peter Prindiville, represents the most prominent progressive opposition to a convention, arguing in The Constitution in Jeopardy that the risks of an uncontrollable convention outweigh the potential benefits. 
+
+Harvard Law professor Lawrence Lessig has charted a middle path: he accepts that the convention is likely inevitable and argues that progressives should engage with the process rather than fight it, using delegate-binding, citizen assemblies, and preemptive rejection resolutions to ensure the convention produces majoritarian outcomes.
+
+---
+
+# Article V Convention FAQ
+Source: https://vthepeople.org/article-v-convention/faq
+
+Article V Convention FAQ 
+
+# Article V Convention: Frequently Asked Questions
+
+See the complete guide for full context, or browse below for quick answers. 
+
+Jump to: Basics | Procedure & Law | Risks & Safeguards | Current Movement | Possible Reforms | Detailed Reference 
+
+## The Basics
+
+### What is an Article V Convention?
+
+It is the second method the Constitution provides for proposing amendments. If 34 state legislatures apply to Congress, Congress must call a convention; any amendment it proposes still requires ratification by 38 states. 
+
+### Is a constitutional convention the same as an Article V convention?
+
+No. A "constitutional convention" usually means the 1787 Philadelphia Convention, which wrote the Constitution from scratch. An Article V Convention can only propose amendments within the existing framework, and those amendments still need 38 states to ratify. 
+
+### Can states force Congress to hold a constitutional convention?
+
+Yes. If 34 state legislatures submit applications, Article V says Congress "shall" call a convention. Hamilton confirmed in Federalist 85 that this language is peremptory and leaves Congress no discretion. 
+
+### How many states are needed to call an Article V convention?
+
+Thirty-four state legislatures must apply to Congress. After a convention proposes an amendment, 38 states must ratify it, meaning a single chamber in each of just 13 states can block any proposal. 
+
+### Has the US ever had a constitutional convention since 1787?
+
+No. The 1787 Philadelphia Convention is the only federal constitutional convention in U.S. history. An Article V Convention for proposing amendments has never been called, though several campaigns have come within one or two states of the threshold. 
+
+### How close are we to an Article V convention?
+
+The exact count depends on contested legal questions about whether applications on different topics can be aggregated and whether old applications have expired. The fiscal-integrity campaign has roughly 28 active applications, and the Convention of States project continues to push in additional states, but both remain short of 34. 
+
+### What happens after an Article V convention proposes an amendment?
+
+The proposed amendment goes to the states for ratification. Congress decides whether ratification happens through state legislatures or specially called state conventions, and three-fourths (38 states) must approve it. 
+
+## Procedure and Law
+
+### Can an Article V convention be limited to one topic?
+
+This is the most contested question in Article V law and is unresolved. Most commentators agree that state applications must address the same issue to be aggregated, but whether the convention itself can be confined once convened is debated. 
+
+### Do all state applications have to say the same thing?
+
+No. They need to address the same general issue but do not need identical language. This standard is called issue congruency. 
+
+### Can a state take back its application for a convention?
+
+The legal effect of rescission is unresolved. Most proposed congressional legislation allowed it before the 34-state threshold was met, and 17 states rescinded previous applications between 1988 and 2010. 
+
+### How long does a state's convention application last?
+
+There is no settled answer. Most proposed legislation set a seven-year window, but FOAVC argues applications never expire, pointing to the 27th Amendment which was ratified 203 years after it was proposed. 
+
+### Does the president have to approve a constitutional amendment?
+
+No. The president has no role in the amendment process and cannot veto a proposed amendment. This has been settled law since the Supreme Court's 1798 decision in Hollingsworth v. Virginia. 
+
+### Do state governors have a role in the Article V Convention process?
+
+The dominant view is no. Article V specifies applications from "legislatures," and a 1974 ABA report confirmed most states exclude the governor, though historically some applications were sent to governors and signed. 
+
+### Who picks the delegates to an Article V convention?
+
+The Constitution does not say. Congress has historically claimed authority to set delegate selection procedures, but this has never been tested. Most proposed legislation gave states significant control over choosing their delegates. 
+
+### How does the convention vote?
+
+The Constitution does not specify. The dominant view is one state, one vote. Proposed rules require 36 states to support any amendment before it can be proposed. 
+
+### What role does Congress play in an Article V Convention?
+
+Congress must call the convention once 34 states apply. It has historically claimed broader authority over procedures, delegate selection, and rules, but none of that has ever been tested in practice. 
+
+### What is the prodding effect?
+
+When states apply for a convention to pressure Congress into proposing an amendment itself rather than letting a convention happen. The 17th Amendment (direct election of senators) is the most successful example. 
+
+## Risks and Safeguards
+
+### Is the runaway convention threat real?
+
+The risk exists in theory, since courts are unlikely to stop a convention from deliberating broadly. But any amendment a convention proposes still needs ratification by 38 states, meaning just 13 states can block anything extreme, and delegate-binding mechanisms upheld by the Supreme Court's 2020 Electors Cases add an additional layer of control. 
+
+### Could a constitutional convention rewrite the entire Constitution?
+
+An Article V Convention is not a constitutional convention. It can only propose amendments, and any amendment it proposes must still be ratified by 38 states before it takes effect. 
+
+### What stops a convention from going rogue?
+
+Three safeguards: the 38-state ratification requirement means 13 states can veto any proposal, proposed convention rules require 36 states to agree before anything is sent out, and the Supreme Court's Electors Cases confirm that states can legally bind and replace delegates who defy their instructions. 
+
+### Can convention delegates be forced to vote a certain way?
+
+Yes. The Supreme Court's 2020 Electors Cases held that states can bind presidential electors and remove those who break their pledge. The same legal principle applies to Article V Convention delegates, meaning states can require delegates to follow the results of a citizen assembly or popular vote. 
+
+### What do the Chiafalo and Baca Supreme Court cases have to do with Article V?
+
+Those cases established that states can bind and replace presidential electors who defy their pledge. Since electors are constitutionally created officers and can still be bound, convention delegates, who have no stronger claim to independence, can be bound as well. 
+
+### What is a citizen assembly and could it work in the US?
+
+A citizen assembly is a randomly selected, representative group of ordinary people brought together to deliberate on a public issue. Ireland has used them successfully for referenda on abortion and same-sex marriage, and the model could be adapted state by state in the U.S. to guide Article V Convention delegates. 
+
+### How could 13 states block a constitutional amendment?
+
+Ratification requires 38 states, so if even a single legislative chamber in each of 13 states votes no, the amendment fails. Preemptive rejection resolutions would let those 13 states announce their veto in advance, forcing the convention to adopt democratic safeguards or risk proposing dead-on-arrival amendments. 
+
+### Is there a way to make a constitutional convention safe?
+
+Yes. The three-pillar strategy combines delegate binding (legally enforceable after the Supreme Court's 2020 Electors Cases), citizen assemblies (to anchor delegates to popular will), and preemptive rejection resolutions (13 states vetoing in advance any amendment from a convention without democratic safeguards). Together these ensure the convention can only propose amendments with genuine majority support. 
+
+### What is a preemptive rejection resolution?
+
+A strategy where state legislatures reject amendments from a future convention in advance. If 13 legislatures passed resolutions rejecting any amendment from a convention without democratic safeguards, the convention movement would have to accept those constraints or propose amendments that cannot be ratified. 
+
+## The Current Movement
+
+### Who is behind the push for a constitutional convention?
+
+On the right, the Convention of States (COS) project, backed by the Mercer Family Foundation and Koch-affiliated donors, is one of several groups pushing for a convention. On the left, WolfPAC advocates for a convention focused on campaign finance reform. 
+
+### What does Convention of States want?
+
+COS seeks amendments restricting the scope and jurisdiction of the federal government, imposing fiscal restraints, and establishing term limits. It is one of several well-funded conservative organizations driving the convention movement. 
+
+### Are progressives for or against an Article V convention?
+
+Most progressive organizations, including Common Cause, oppose a convention out of fear it could be dominated by the right. Lawrence Lessig and others argue this is a mistake, since the convention is likely coming regardless and disengagement only guarantees progressives have no voice in the process. 
+
+### Why does Common Cause oppose an Article V convention?
+
+Common Cause fears a runaway convention and has rallied state legislatures to rescind convention applications, including applications designed to address money in politics. Critics of this position argue that rescinding all applications, even those aligned with progressive goals, cedes the entire convention process to the right. 
+
+## Possible Reforms
+
+### Can an Article V convention overturn Citizens United?
+
+Yes, if enough states applied for a convention addressing campaign finance and the convention proposed a relevant amendment. WolfPAC and several state legislatures have already submitted applications specifically targeting the influence of money in politics. 
+
+### Could a convention impose term limits on Congress?
+
+Yes. Term limits enjoy broad popular support across the political spectrum. A convention-proposed term limits amendment would still need ratification by 38 states. 
+
+### Is an Article V convention the only way to fix gerrymandering?
+
+Not the only way, but possibly the most realistic path to a constitutional solution. Congress could propose an amendment but has no incentive to do so since gerrymandering benefits incumbents, and a constitutional amendment would be the most durable fix. 
+
+### What constitutional reforms could an Article V convention address?
+
+Depending on the scope of state applications: fiscal restraints, term limits, campaign finance reform, gerrymandering, an affirmative right to vote, and Electoral College reform. If progressive states submit applications, the range of available topics expands. 
+
+### Why should progressives engage with the Article V convention rather than oppose it?
+
+The convention movement is well-funded and close to the threshold. The Constitution has structural flaws Congress will never fix: money in politics, gerrymandering, no affirmative right to vote. Refusing to engage does not make the convention less likely. It makes it less democratic. 
+
+## Detailed Reference
+
+For readers who want deeper context, the following answers expand on the topics above. 
+
+### Article V Convention: full explanation
+
+An Article V Convention is the second method provided in the U.S. Constitution for proposing amendments. If two-thirds of state legislatures (currently 34 states) apply to Congress, Congress is constitutionally obligated to call a convention for proposing amendments. Any amendments proposed must then be ratified by three-fourths of the states (currently 38) before becoming part of the Constitution. This method has never been used, but the threat of a convention has historically pressured Congress to propose amendments on its own, including the 17th Amendment establishing direct election of senators. 
+
+### Limiting a convention to one topic: full explanation
+
+This is the most contested question in Article V law and is unresolved. Most commentators and the House Judiciary Committee (in a 1993 study) agree that state applications must address the same issue to be counted toward the 34-state threshold, though they need not share identical language. General issue congruency is sufficient. However, whether a convention, once convened, can actually be confined to its original topic is debated. Courts are unlikely to enjoin a convention from deliberating broadly, for the same judicial restraint reasons that keep courts from dictating congressional proceedings. Under the proposed convention rules drafted by pro-convention state legislators, the convention would require 36 states to agree before proposing any amendment, and could not consider topics not included in at least 34 state applications. 
+
+### Delegate binding: full explanation
+
+In the 2020 Electors Cases ( Chiafalo v. Washington and Colorado v. Baca ), the Supreme Court held unanimously that states may bind presidential electors to vote as pledged and may remove electors who threaten to vote contrary to their pledge. Since presidential electors, a position created by the Constitution itself, can be directed by the people's vote, delegates to an Article V Convention can be directed as well. Many states already have laws purporting to bind convention delegates, but the Electors Cases provide the constitutional foundation to make such laws enforceable. Critically, if delegates are bound to reflect the will of the people (rather than the legislature), then the legislature should have no power to override that direction after the fact. 
+
+### Citizen assemblies: full explanation
+
+Citizen assemblies are randomly selected, representative gatherings of ordinary citizens convened to deliberate on difficult public issues. They have been used successfully around the world, most prominently in Ireland, where citizen assemblies addressed abortion and same-sex marriage and produced recommendations ratified by national referenda. Harvard Law professor Lawrence Lessig has proposed convening citizen assemblies within each state to constrain Article V Convention delegates. Under this proposal, modeled on Stanford professor James Fishkin's deliberative polls, participants would be randomly selected, required to attend (like jurors), fairly compensated, given briefing materials, and allowed to deliberate. States would then require that their convention delegates may not vote to support any amendment whose topic was not supported by at least 60% of the state's citizen assembly. This would bind the convention to majoritarian democracy. 
+
+### Rescission: full explanation
+
+Whether a state can rescind its Article V application is unresolved. Some constitutional scholars hold that states may withdraw applications without prejudice, so long as the two-thirds threshold of 34 states has not been crossed. Others argue that an application is as binding as a ratification vote, which historically has not been allowed to be rescinded: Congress refused to accept rescissions of 14th Amendment ratifications. The Supreme Court in Coleman v. Miller (1939) treated rescission as a "political question" for Congress to decide. Most constitutional convention procedures bills introduced in Congress during the 1970s through 1990s allowed rescission before the threshold was met. Between 1988 and 2010, 17 state legislatures passed rescission resolutions for previous Article V applications. 
+
+### Convention of States: full explanation
+
+The Convention of States (COS) project was founded in 2013 by Michael Farris and Mark Meckler. It is one of several conservative organizations pushing for a convention to propose amendments restricting federal power, imposing fiscal restraints, and establishing term limits. COS has received financial support from the Mercer Family Foundation and Koch-affiliated organizations, and is closely aligned with the American Legislative Exchange Council (ALEC).
+
+---
+
+# Article V Glossary
+Source: https://vthepeople.org/article-v-convention/glossary
+
+Article V Glossary: Key Terms Defined 
+
+# Article V Convention Glossary
+
+Definitions of every key term in the Article V Convention debate. 
+
+## Constitutional Framework
+
+Article V : The article of the U.S. Constitution that establishes two methods for proposing amendments: by two-thirds vote of both chambers of Congress, or by a convention called on application of two-thirds of state legislatures. Both methods require ratification by three-fourths of the states. 
+
+Article V Convention : A convention for proposing amendments to the U.S. Constitution, called by Congress when two-thirds of state legislatures (currently 34) submit applications. Never convened. Also called a "convention for proposing amendments." Distinct from a constitutional convention, which would draft a new constitution. 
+
+Application : A formal petition from a state legislature to Congress requesting that Congress call an Article V Convention. Must be approved by both chambers of the legislature. Thirty-four applications are required to trigger Congress's obligation to call a convention. 
+
+Ratification : The process by which a proposed constitutional amendment becomes part of the Constitution. Requires approval by three-fourths of the states (currently 38), either through state legislatures or ad hoc state ratifying conventions, at Congress's discretion. 
+
+Two-Thirds Threshold : The requirement that two-thirds of both houses of Congress (to propose directly) or two-thirds of state legislatures (currently 34, to call a convention) must act before the amendment process proceeds. 
+
+Three-Fourths Threshold : The requirement that three-fourths of the states (currently 38) must ratify a proposed amendment. Applies identically to amendments proposed by Congress and by an Article V Convention. 
+
+State Ratifying Convention : An ad hoc convention within a state to vote on ratification of a proposed amendment. Congress chooses whether ratification is by state legislatures or by state conventions. The only amendment ratified by state conventions was the 21st (repeal of Prohibition, 1933). 
+
+## Procedural Concepts
+
+Issue Congruency : The standard most commentators endorse for aggregating state applications: applications must address the same issue to be counted together, but need not share identical language. 
+
+Contemporaneity : The principle that state applications should be roughly contemporaneous to be validly aggregated. Most proposed legislation set a seven-year window. 
+
+Rescission : A state legislature's vote to withdraw a previous Article V Convention application. Legal effect is unresolved. The Supreme Court in Coleman v. Miller (1939) treated it as a political question for Congress. Between 1988 and 2010, 17 states rescinded previous applications. 
+
+Plenary Convention : An Article V Convention not limited to any particular topic. Some older, unrescinded state applications called for a plenary convention. Whether these can be aggregated with topic-specific applications is contested. 
+
+Prodding Effect : The phenomenon by which state applications pressure Congress to propose an amendment itself. The 17th Amendment (direct election of senators) is the most successful historical example: 25+ state applications prompted Congress to act before a convention was triggered. 
+
+Runaway Convention : A scenario where a convention called for a specific purpose expands to consider unrelated amendments. The primary argument used by opponents. Mitigated by the 38-state ratification requirement, proposed supermajority convention rules (36 states to propose), and delegate-binding mechanisms now supported by the Electors Cases. 
+
+Political Question Doctrine : A judicial principle under which courts decline to decide certain issues, deferring to the political process. Applied by the Supreme Court to Article V rescission in Coleman v. Miller (1939) and likely applicable to many convention-related disputes. 
+
+Madison Amendment (Article V context) : A proposal to let states include specific amendment language in their applications, pre-drafting amendments. Named for James Madison. Critics argue this eliminates the convention's deliberative function and short-circuits Article V's checks and balances. 
+
+## Democratic Safeguards
+
+Delegate Binding : The practice of legally requiring convention delegates to vote according to specific instructions, such as the results of a citizen assembly or popular referendum. The constitutional basis was significantly strengthened by the Supreme Court's 2020 Electors Cases. 
+
+Electors Cases : Two 2020 Supreme Court decisions , Chiafalo v. Washington and Colorado v. Baca , holding that states may compel presidential electors to vote as pledged and remove those who defy their pledge. Justice Kagan wrote that this accords with the principle that "We the People rule." Establishes the constitutional principle that delegate-type positions can be bound by the people's will, with direct implications for Article V Convention delegates. 
+
+Citizen Assembly : A randomly selected, representative gathering of ordinary citizens convened to deliberate on difficult public issues. Used successfully in Ireland for referenda on abortion and same-sex marriage. Lawrence Lessig has proposed convening them within each state, modeled on James Fishkin's deliberative polling, to constrain Article V Convention delegates. States would require delegates to support only amendments backed by at least 60% of the assembly. 
+
+Deliberative Poll : A methodology developed by Stanford professor James Fishkin in which a random, representative sample of citizens receives balanced briefing materials and deliberates before expressing their views. Proposed as the model for state-level citizen assemblies that would constrain Article V Convention delegates. 
+
+Preemptive Rejection Resolution : A strategy proposed by Lawrence Lessig in which state legislatures pass resolutions rejecting in advance any amendment from an Article V Convention that does not incorporate democratic safeguards. Since 13 states can block ratification, 13 such resolutions would force the convention movement to accept democratic constraints or risk proposing amendments that cannot be ratified. 
+
+## Organizations and Actors
+
+Convention of States (COS) : A conservative Article V advocacy organization founded in 2013 by Michael Farris and Mark Meckler. One of several groups pushing for a convention to propose amendments restricting federal power, imposing fiscal restraints, and establishing term limits. Supported by the Mercer Family Foundation and Koch-affiliated organizations. 
+
+WolfPAC : The most prominent Article V convention advocacy group on the political left, founded by Cenk Uygur. Focuses on a convention to propose an amendment addressing the influence of money in politics after Citizens United . 
+
+ALEC (American Legislative Exchange Council) : A nonprofit organization of conservative state legislators and private sector representatives that has made the Article V Convention a central project. ALEC facilitates coordination among state legislators supporting convention applications. 
+
+Friends of the Article V Convention (FOAVC) : An advocacy organization maintaining the most comprehensive (though unofficial) compilation of state Article V Convention applications. FOAVC argues that applications on any subject should be aggregated and that Congress has been obligated to call a convention since at least 1911. 
+
+Fiscal Integrity Amendment : A proposed constitutional amendment requiring a balanced federal budget except in extraordinary circumstances. The fiscal integrity convention drive is one of the Article V campaigns with the most state applications to date.
+
+---
+
+# Three-Pillar Strategy
+Source: https://vthepeople.org/article-v-convention/strategy
+
+The Three-Pillar Strategy for a Democratic Article V Convention 
+
+# The Three-Pillar Strategy for a Democratic Article V Convention
+
+Delegate binding, citizen assemblies, and preemptive rejection: how to ensure a convention reflects the will of the people. 
+
+By Publius 
+
+## The Premise
+
+The Article V Convention is coming. The conservative convention movement is well-funded, well-organized, and close to the 34-state threshold. Progressives, moderates, and democratic reformers face a choice: fight to stop the convention and cede control of the process to the right, or engage with the process and shape it to reflect majoritarian values. 
+
+Engagement is the only responsible option. Not because the risks are imaginary (the "runaway convention" fear has a basis in constitutional ambiguity), but because those risks can now be managed. Thanks to a pair of Supreme Court decisions in 2020, the tools exist to constrain an Article V Convention so that it can only propose amendments supported by a genuine democratic majority. 
+
+The strategy rests on three pillars, each reinforcing the others. 
+
+## Pillar 1: Delegate Binding Through the Electors Cases
+
+### The Legal Foundation
+
+In 2020, the Supreme Court decided Chiafalo v. Washington and Colorado v. Baca . The question was whether states could compel presidential electors to vote as pledged, or whether electors retained the discretion the framers originally envisioned. The Court held unanimously that states may bind electors. States may remove and replace any elector who threatens to vote contrary to their pledge. 
+
+The framers plainly imagined presidential electors exercising independent judgment. But history, the Court concluded, had rendered them differently. Recognizing a state's power to bind its electors, Justice Kagan wrote, "accords with the Constitution, as well as with the trust of a Nation that here, We the People rule." 
+
+### Application to Article V Delegates
+
+If presidential electors, a position created by the Constitution itself, can be directed by the people's vote, then delegates to an Article V Convention can be directed as well. The logic is straightforward: electors are constitutionally established officers with an originally intended deliberative role, and they can be bound. Convention delegates have no stronger claim to independence. 
+
+Many states already have laws that purport to bind convention delegates. Critics, including Feingold and Prindiville in The Constitution in Jeopardy , have dismissed these laws as "toothless" because they don't stop a state legislature from changing its mind and redirecting delegates after a convention is called. But this critique misses the critical possibility that the Electors Cases illuminate. 
+
+### The Key Move: Binding to the People, Not the Legislature
+
+If a state legislature directs its delegates to reflect the will of the people (through a citizen assembly, a popular referendum, or a binding vote), then the legislature itself should have no power to change how delegates must vote after the fact. The principle is the same as with presidential electors: if a legislature gives the people the vote and one candidate wins, the legislature cannot then override that result by directing electors to vote for the losing candidate. 
+
+"Here, We the People rule" must mean that once the people have spoken, the people's choice is binding. The legislature cannot take it back. 
+
+This is the foundation of the entire strategy. If delegates are bound to the people rather than to the legislature, the convention becomes democratic by construction. 
+
+## Pillar 2: Citizen Assemblies
+
+### The Model
+
+Across the world, citizen assemblies have emerged as a powerful mechanism for resolving questions that ordinary politics cannot handle. The most prominent examples are from Ireland, where randomly selected citizen assemblies addressed abortion and same-sex marriage. Their conclusions were wildly popular, ratified by national referenda, and impossible to imagine the ordinary Irish legislature producing. 
+
+The assemblies work because they combine representation with deliberation. Participants are not activists or partisans. They are ordinary people, randomly selected to be statistically representative of the population, given balanced information, and allowed to discuss and argue before reaching conclusions. 
+
+### How It Would Work for Article V
+
+The proposal, advanced by Lawrence Lessig and drawing on the deliberative polling methodology of Stanford professor James Fishkin, works as follows: 
+
+Each participating state would convene a citizen assembly: a large, randomly selected, representative sample of the state's population. Like jurors, participants would be required to attend. Unlike jurors, they would be compensated fairly. Not the $15-per-day insult of jury duty, but genuine compensation: travel expenses, government per diem, lost wages, job protection, and a meaningful bonus for participation. 
+
+Participants would receive briefing materials in advance covering the constitutional amendments and topics under consideration. They would then meet and deliberate in both small and large groups over an extended period. At the conclusion, they would vote on which amendments or topics they support. 
+
+### The Binding Rule
+
+The state legislature would then pass a law providing that: "No delegate from the State of [X] may vote to support a proposed amendment whose topic at least 60 percent of the state's Citizen Assembly did not support." 
+
+That single rule transforms the convention. Delegates are no longer free agents. They are not instruments of the legislature. They are bound to reflect the deliberated will of a representative sample of their state's population. Combined with the Electors Cases' holding that such binding is constitutionally enforceable, this creates a convention constrained by majoritarian democracy. 
+
+### Why Extremists Won't Dominate
+
+Some will resist citizen assemblies for fear they would be captured by extremists. This concern is mistaken. If the assembly is randomly selected and genuinely representative, extremists would constitute a tiny minority, because they are a tiny minority of America. The entire point of random selection is that it reproduces the actual distribution of views in the population. A citizen assembly is not a town hall; it is not self-selected; it does not reward the loudest voices. It is a structured, deliberative body that reflects the country as it actually is. 
+
+## Pillar 3: Preemptive Rejection Resolutions
+
+### The Arithmetic of Ratification
+
+No amendment, however proposed, can become part of the Constitution without the approval of 38 states. Conversely, a single legislative chamber in each of just 13 states can block any amendment. This veto power is normally exercised after a convention proposes something. But there is no constitutional requirement that it be exercised only after the fact. 
+
+### The Strategy
+
+Imagine that a state legislature passes a resolution along these lines: "The State of [X] hereby preemptively rejects any amendment proposed by an Article V Convention that does not entrench the voice of the People in both the convention and ratification process." 
+
+The resolution would not dictate that every state create a citizen assembly. Assemblies are ideal, but the resolution would accept other mechanisms (popular referenda, elected and pledged delegates to ratifying conventions) so long as convention delegates are constrained by some form of popular input rather than legislative discretion alone. 
+
+### Why 13 States Changes Everything
+
+If 13 state legislatures passed such resolutions, the politics of the convention would transform fundamentally. No one knows whether preemptive rejections have ultimate legal force (they have never been tested). But their political force would be enormous. 
+
+These 13 states would be sending an unmistakable signal to the convention movement: abide by democratic checks, or your amendments will be stillborn. Why would any rational convention organizer spend years mobilizing 34 states to call a convention, only to propose amendments that 13 states have already promised to block? 
+
+The rational response is to accept the democratic constraints. And in doing so, the convention movement would embed majoritarian values into the process from the very beginning, before a single delegate is selected, before a single vote is cast. 
+
+### The Feedback Loop
+
+The three pillars reinforce each other. Preemptive rejection resolutions create the political pressure to adopt citizen assemblies and delegate binding. Citizen assemblies give the delegate-binding mechanism its democratic legitimacy. And the Electors Cases make the entire structure legally enforceable. Remove any one pillar and the strategy weakens. Together, they create a self-reinforcing architecture for a democratic convention. 
+
+## What This Makes Possible
+
+If these safeguards are in place, an Article V Convention becomes something it has never been before: a vehicle for genuine constitutional reform with democratic legitimacy. 
+
+The Constitution as currently interpreted has structural flaws that Congress will never fix. The corrupting dependence on money in politics. Weaponized gerrymandering. The absence of an affirmative right to vote. A presidential election system that makes most voters irrelevant. The lack of meaningful term limits. These are not partisan issues. Polling consistently shows supermajority support for these reforms across the political spectrum. 
+
+But Congress is the obstacle. Congress benefits from the current system. That is precisely the scenario George Mason warned about in 1787 when he insisted the Constitution include a mechanism for proposing amendments that Congress could not control. 
+
+The Article V Convention is that mechanism. The three-pillar strategy is how we ensure it serves the people rather than the factions that first set it in motion. The tools exist. The legal precedent is established. The question is whether we use them. 
+
+## Key Sources
+
+This strategy draws primarily on two sources: 
+
+Lawrence Lessig, "Making an Article V Convention Safe for Democracy," originally published in the New York Review of Books (2023), which develops the three-pillar strategy in detail, including the application of the Electors Cases to delegate binding, the citizen assembly proposal, and the preemptive rejection strategy. 
+
+Thomas H. Neale, "The Article V Convention for Proposing Constitutional Amendments: Historical Perspectives for Congress," Congressional Research Service Report R42592 (2012), which provides the procedural and historical foundation for understanding how the convention process works, the role of the states, and the unresolved legal questions. 
+
+Additional sources include: The Constitution in Jeopardy by Russ Feingold and Peter Prindiville; Chiafalo v. Washington , 591 U.S. ___ (2020); Colorado v. Baca , 591 U.S. ___ (2020); Coleman v. Miller , 307 U.S. 433 (1939); Hollingsworth v. Virginia , 3 U.S. 378 (1798); James Fishkin's work on deliberative polling at Stanford University; and the historical record of citizen assemblies in Ireland.
+
+---

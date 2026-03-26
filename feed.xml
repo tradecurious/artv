@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>VThePeople</title>
+  <subtitle>Independent analysis of the Article V Convention for proposing constitutional amendments</subtitle>
+  <link href="https://vthepeople.org/feed.xml" rel="self"/>
+  <link href="https://vthepeople.org/"/>
+  <updated>2026-03-26T12:00:00Z</updated>
+  <id>https://vthepeople.org/</id>
+  <author>
+    <name>Publius</name>
+    <uri>https://www.vthepeople.org/about</uri>
+  </author>
+
+  <entry>
+    <title>Article V Convention for Proposing Amendments: A Complete Guide</title>
+    <link href="https://vthepeople.org/article-v-convention"/>
+    <id>https://vthepeople.org/article-v-convention</id>
+    <updated>2026-03-26T12:00:00Z</updated>
+    <summary>Comprehensive overview of the Article V Convention process: constitutional text, founders' intent, historical track record, key legal debates, democratic safeguards including the Electors Cases, citizen assemblies, and preemptive rejection resolutions, progressive engagement with Article V, and key actors and organizations.</summary>
+    <category term="Article V Convention"/>
+    <category term="constitutional amendment"/>
+    <category term="constitutional reform"/>
+  </entry>
+
+  <entry>
+    <title>Article V Convention: Frequently Asked Questions</title>
+    <link href="https://vthepeople.org/article-v-convention/faq"/>
+    <id>https://vthepeople.org/article-v-convention/faq</id>
+    <updated>2026-03-26T12:00:00Z</updated>
+    <summary>44 frequently asked questions about the Article V Convention process: how many states are needed, runaway convention risks, delegate binding, citizen assemblies, the Electors Cases, preemptive rejection, current application counts, Convention of States, WolfPAC, and possible constitutional reforms.</summary>
+    <category term="Article V Convention"/>
+    <category term="FAQ"/>
+  </entry>
+
+  <entry>
+    <title>Article V Glossary: Key Terms Defined</title>
+    <link href="https://vthepeople.org/article-v-convention/glossary"/>
+    <id>https://vthepeople.org/article-v-convention/glossary</id>
+    <updated>2026-03-26T12:00:00Z</updated>
+    <summary>Definitions of 22 key terms in the Article V Convention debate including application, ratification, runaway convention, delegate binding, Electors Cases, citizen assembly, preemptive rejection resolution, rescission, contemporaneity, issue congruency, prodding effect, and more.</summary>
+    <category term="Article V Convention"/>
+    <category term="glossary"/>
+  </entry>
+
+  <entry>
+    <title>The Three-Pillar Strategy for a Democratic Article V Convention</title>
+    <link href="https://vthepeople.org/article-v-convention/strategy"/>
+    <id>https://vthepeople.org/article-v-convention/strategy</id>
+    <updated>2026-03-26T12:00:00Z</updated>
+    <summary>Detailed analysis of the three-pillar strategy for ensuring a democratic Article V Convention: delegate binding through the Supreme Court's Electors Cases (Chiafalo v. Washington, Colorado v. Baca), citizen assemblies modeled on Irish deliberative democracy and James Fishkin's methodology, and preemptive rejection resolutions leveraging the 13-state veto.</summary>
+    <category term="Article V Convention"/>
+    <category term="delegate binding"/>
+    <category term="citizen assembly"/>
+    <category term="Electors Cases"/>
+  </entry>
+</feed>
