@@ -251,6 +251,121 @@ body {
     border-bottom-color: var(--old-glory-blue);
 }
 
+/* FAQ Page */
+.faq-jump {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 2;
+    margin-bottom: 48px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 16px 20px;
+    background: var(--light-gray);
+    border-left: 4px solid var(--old-glory-blue);
+}
+
+.faq-jump a {
+    color: var(--old-glory-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.faq-jump a:hover {
+    text-decoration: underline;
+}
+
+.faq-body section {
+    margin-bottom: 52px;
+}
+
+.faq-body h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--old-glory-blue);
+    margin: 52px 0 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-body section:first-of-type h2 {
+    margin-top: 0;
+}
+
+.faq-body h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin: 32px 0 8px;
+    line-height: 1.4;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.faq-body p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.12rem;
+    line-height: 1.85;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.faq-body p a {
+    color: var(--old-glory-blue);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+}
+
+.faq-body p a:hover {
+    color: var(--old-glory-red);
+}
+
+.faq-learn-more {
+    margin-top: 52px;
+    padding-top: 32px;
+    border-top: 2px solid var(--old-glory-blue);
+}
+
+.faq-learn-more h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 16px;
+    border: none;
+    padding: 0;
+}
+
+.faq-learn-more ul {
+    list-style: none;
+    padding: 0;
+}
+
+.faq-learn-more ul li {
+    margin-bottom: 10px;
+}
+
+.faq-learn-more ul li::before {
+    content: '→ ';
+    color: var(--old-glory-red);
+    font-weight: 700;
+}
+
+.faq-learn-more a {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--old-glory-blue);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.faq-learn-more a:hover {
+    border-bottom-color: var(--old-glory-blue);
+}
+
 @media (max-width: 768px) {
     .site-nav {
         padding: 0 16px;
@@ -266,6 +381,10 @@ body {
 
     .article-sources {
         padding: 24px 18px;
+    }
+
+    .faq-jump {
+        font-size: 0.82rem;
     }
 }
 
