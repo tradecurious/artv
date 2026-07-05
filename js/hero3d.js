@@ -14,10 +14,11 @@ class VShape3D {
         };
 
         this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color(0xe8dfd5);
 
         const width = this.canvas.clientWidth;
         const height = this.canvas.clientHeight;
+        this.baseWidth = width;
+        this.baseHeight = height;
 
         this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
         this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, alpha: true, antialias: true });
@@ -151,8 +152,12 @@ class VShape3D {
     }
 
     onClick() {
+        // Grow the canvas itself (not the mesh) so the V is never clipped by its
+        // frame as it grows - it just renders bigger, on top of everything else.
         this.scaleFactor *= 1.1;
-        this.vShape.scale.set(this.scaleFactor, this.scaleFactor, this.scaleFactor);
+        this.canvas.style.width = (this.baseWidth * this.scaleFactor) + 'px';
+        this.canvas.style.height = (this.baseHeight * this.scaleFactor) + 'px';
+        this.onWindowResize();
     }
 
     animate() {
