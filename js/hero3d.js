@@ -32,11 +32,13 @@ class VShape3D {
 
         this.mouse = { x: 0, y: 0 };
         this.targetRotation = { x: 0, y: 0 };
+        this.scaleFactor = 1;
 
         if (this.options.enableInteraction) {
             window.addEventListener('mousemove', this.onMouseMove.bind(this));
         }
         window.addEventListener('resize', this.onWindowResize.bind(this));
+        this.canvas.addEventListener('click', this.onClick.bind(this));
 
         this.animate();
     }
@@ -146,6 +148,11 @@ class VShape3D {
         // Calculate target rotation based on mouse position
         this.targetRotation.x = this.mouse.y * this.options.sensitivity;
         this.targetRotation.y = this.mouse.x * this.options.sensitivity;
+    }
+
+    onClick() {
+        this.scaleFactor *= 1.1;
+        this.vShape.scale.set(this.scaleFactor, this.scaleFactor, this.scaleFactor);
     }
 
     animate() {
