@@ -8,7 +8,9 @@ class VShape3D {
             canvasId,
             size: options.size || 60,
             color: options.color || 0xc41e3a,
-            enableInteraction: options.enableInteraction !== false
+            enableInteraction: options.enableInteraction !== false,
+            sensitivity: options.sensitivity || 0.3,
+            lerpSpeed: options.lerpSpeed || 0.05
         };
 
         this.scene = new THREE.Scene();
@@ -142,16 +144,16 @@ class VShape3D {
         this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
         // Calculate target rotation based on mouse position
-        this.targetRotation.x = this.mouse.y * 0.3;
-        this.targetRotation.y = this.mouse.x * 0.3;
+        this.targetRotation.x = this.mouse.y * this.options.sensitivity;
+        this.targetRotation.y = this.mouse.x * this.options.sensitivity;
     }
 
     animate() {
         requestAnimationFrame(this.animate.bind(this));
 
         // Smooth rotation following mouse (x and y axes)
-        this.vShape.rotation.x += (this.targetRotation.x - this.vShape.rotation.x) * 0.05;
-        this.vShape.rotation.y += (this.targetRotation.y - this.vShape.rotation.y) * 0.05;
+        this.vShape.rotation.x += (this.targetRotation.x - this.vShape.rotation.x) * this.options.lerpSpeed;
+        this.vShape.rotation.y += (this.targetRotation.y - this.vShape.rotation.y) * this.options.lerpSpeed;
 
         // Continuous spin like Earth rotating on its axis (Y axis - shows 3D depth)
         this.vShape.rotation.y += 0.008;
@@ -175,11 +177,13 @@ class VShape3D {
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Explore the Debate 3D V
-    const explorCanvas = document.getElementById('exploreDébate3dCanvas');
-    if (explorCanvas) {
-        new VShape3D('exploreDébate3dCanvas', {
-            enableInteraction: true
+    // Initialize navbar 3D V
+    const navCanvas = document.getElementById('navV3dCanvas');
+    if (navCanvas) {
+        new VShape3D('navV3dCanvas', {
+            enableInteraction: true,
+            sensitivity: 1.4,
+            lerpSpeed: 0.18
         });
     }
 });
