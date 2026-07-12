@@ -25,15 +25,21 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vthepeople.org/article-v-convention/strategy</loc>
-    <lastmod>2026-03-26</lastmod>
+    <loc>https://vthepeople.org/faq.html#strategy</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.vthepeople.org/about</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://vthepeople.org/panels</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vthepeople.org/schedule</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
