@@ -774,26 +774,6 @@ details.person[open] .person-toggle {
     color: #777;
 }
 
-.schedule-panel-link {
-    display: inline-block;
-    margin-top: 10px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--old-glory-red);
-    text-decoration: none;
-}
-
-.schedule-panel-link:hover {
-    color: #8e1b29;
-}
-
-.schedule-panel-link .arrow {
-    margin-left: 4px;
-}
-
 @media (max-width: 768px) {
     .schedule-item {
         grid-template-columns: 1fr;
