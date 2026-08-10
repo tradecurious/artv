@@ -702,6 +702,64 @@ details.person[open] .person-toggle {
     margin-bottom: 0;
 }
 
+/* Panels Page — Fireside Chat feature */
+.fireside-section {
+    margin-bottom: 72px;
+    scroll-margin-top: 72px;
+}
+
+.fireside-card {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-top: 24px;
+    padding: 28px;
+    background: var(--light-gray);
+    border-left: 4px solid var(--old-glory-blue);
+    border-radius: 8px;
+}
+
+.fireside-photo {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    object-position: center 18%;
+    border-radius: 8px;
+    border: 3px solid var(--old-glory-red);
+    flex-shrink: 0;
+}
+
+.fireside-body h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--old-glory-blue);
+    margin: 0 0 8px;
+    padding: 0;
+    border: none;
+}
+
+.fireside-body p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .fireside-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 18px;
+        padding: 22px 18px;
+    }
+
+    .fireside-body h2 {
+        font-size: 1.4rem;
+    }
+}
+
 /* Schedule Page */
 .schedule-day {
     margin-bottom: 56px;
