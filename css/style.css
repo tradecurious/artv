@@ -1006,16 +1006,23 @@ details.person[open] .person-toggle {
     font-weight: 700;
 }
 
+/* RSVP spans both columns so the three buttons form an even rectangle */
 .hero-actions {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
-    margin-bottom: 16px;
+    max-width: 560px;
+    margin: 0 auto;
 }
 
-.hero-actions-secondary {
-    margin-bottom: 0;
+.hero-actions .hero-btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: nowrap;
+}
+
+.hero-actions .hero-btn-primary {
+    grid-column: 1 / -1;
 }
 
 .hero-btn {
@@ -1053,11 +1060,6 @@ details.person[open] .person-toggle {
     background: var(--old-glory-blue);
     color: var(--old-glory-white);
     transform: translateY(-2px);
-}
-
-.hero-actions-secondary .hero-btn {
-    padding: 12px 28px;
-    font-size: 0.82rem;
 }
 
 /* Featured Guests Section */
@@ -1118,13 +1120,7 @@ details.person[open] .person-toggle {
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    text-decoration: none;
     color: inherit;
-    transition: transform 0.2s ease;
-}
-
-.featured-guest:hover {
-    transform: translateY(-3px);
 }
 
 .featured-guest img {
@@ -1144,10 +1140,6 @@ details.person[open] .person-toggle {
     font-weight: 600;
     color: var(--dark-text);
     line-height: 1.3;
-}
-
-.featured-guest:hover .featured-guest-name {
-    color: var(--old-glory-blue);
 }
 
 /* Opening / Closing remarks photo row (panels page) */
@@ -1765,9 +1757,13 @@ details.person[open] .person-toggle {
         letter-spacing: 0.12em;
     }
 
-    .hero-btn {
-        width: 100%;
-        max-width: 320px;
+    .hero-actions {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+    }
+
+    .hero-actions .hero-btn {
+        padding: 14px 20px;
     }
 
     .hero-lead-list li {
