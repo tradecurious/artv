@@ -1149,7 +1149,7 @@ details.person[open] .person-toggle {
 /* Journal on Legislation partnership band */
 .jol-section {
     padding: 80px 20px;
-    background: #e8dfd5;
+    background: #a92937;
     text-align: center;
 }
 
@@ -1157,7 +1157,7 @@ details.person[open] .person-toggle {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 5vw, 2.8rem);
     font-weight: 700;
-    color: var(--dark-text);
+    color: var(--old-glory-white);
     margin-bottom: 12px;
 }
 
@@ -1166,7 +1166,7 @@ details.person[open] .person-toggle {
     display: block;
     width: 64px;
     height: 3px;
-    background: var(--old-glory-red);
+    background: var(--old-glory-white);
     margin: 18px auto 0;
 }
 
@@ -1181,7 +1181,7 @@ details.person[open] .person-toggle {
 .jol-sub {
     font-family: 'Playfair Display', serif;
     font-size: 1.15rem;
-    color: #3a3a3a;
+    color: rgba(255, 255, 255, 0.92);
     margin-top: 28px;
 }
 
