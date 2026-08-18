@@ -1148,36 +1148,41 @@ details.person[open] .person-toggle {
 
 /* Journal on Legislation partnership band */
 .jol-section {
-    padding: 56px 20px;
-    background: var(--light-gray);
-    border-top: 1px solid #e2e2e2;
-    border-bottom: 1px solid #e2e2e2;
+    padding: 80px 20px;
+    background: #e8dfd5;
     text-align: center;
+}
+
+.jol-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 12px;
+}
+
+.jol-section h2::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: var(--old-glory-red);
+    margin: 18px auto 0;
 }
 
 .jol-logo {
     display: block;
     width: 100%;
-    max-width: 430px;
+    max-width: 440px;
     height: auto;
-    margin: 0 auto;
-}
-
-.jol-line {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #666;
-    margin-bottom: 20px;
+    margin: 52px auto 0;
 }
 
 .jol-sub {
     font-family: 'Playfair Display', serif;
-    font-size: 1.08rem;
-    color: #444;
-    margin-top: 20px;
+    font-size: 1.15rem;
+    color: #3a3a3a;
+    margin-top: 28px;
 }
 
 /* Opening / Closing remarks photo row (panels page) */
