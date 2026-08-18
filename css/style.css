@@ -1158,28 +1158,26 @@ details.person[open] .person-toggle {
 .jol-logo {
     display: block;
     width: 100%;
-    max-width: 420px;
+    max-width: 430px;
     height: auto;
-    margin: 0 auto 24px;
+    margin: 0 auto;
 }
 
 .jol-line {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-    color: var(--dark-text);
-    line-height: 1.4;
-}
-
-.jol-line strong {
-    color: #8b1a2b;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.78rem;
     font-weight: 700;
+    color: #666;
+    margin-bottom: 20px;
 }
 
 .jol-sub {
     font-family: 'Playfair Display', serif;
-    font-size: 1.02rem;
-    color: #555;
-    margin-top: 8px;
+    font-size: 1.08rem;
+    color: #444;
+    margin-top: 20px;
 }
 
 /* Opening / Closing remarks photo row (panels page) */
