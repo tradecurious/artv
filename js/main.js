@@ -1,17 +1,53 @@
-// Listserv Form Handler
-document.getElementById('listservForm').addEventListener('submit', function(e) {
+// Listserv Form Handler — records signups in the Supabase mailing_list table
+const SUPABASE_URL = 'https://dnkdbwxsygtptwbemydc.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_a2n4QNMl1NcgkG__6-GHcg_e2YZHYnZ';
+
+document.getElementById('listservForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const email = document.getElementById('email').value;
+    const form = this;
+    const email = document.getElementById('email').value.trim().toLowerCase();
+    if (!email) return;
 
-    // Here you would typically send the email to a backend service
-    console.log('Email submitted:', email);
+    const button = document.querySelector('.btn-subscribe');
+    const originalLabel = button ? button.textContent : '';
+    if (button) { button.disabled = true; button.textContent = 'Subscribing…'; }
 
-    // Clear the form
-    this.reset();
+    try {
+        const res = await fetch(SUPABASE_URL + '/rest/v1/mailing_list', {
+            method: 'POST',
+            headers: {
+                'apikey': SUPABASE_KEY,
+                'Authorization': 'Bearer ' + SUPABASE_KEY,
+                'Content-Type': 'application/json',
+                'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({ email: email })
+        });
 
-    // Optional: Show a success message
-    alert('Thank you for joining the listserv!');
+        // 409 = duplicate key; treat an already-subscribed address as success
+        if (res.ok || res.status === 409) {
+            form.reset();
+            showListservMessage('Thank you for joining the mailing list!', true);
+        } else {
+            showListservMessage('Something went wrong. Please try again, or email team@vthepeople.org.', false);
+        }
+    } catch (err) {
+        showListservMessage('Something went wrong. Please try again, or email team@vthepeople.org.', false);
+    } finally {
+        if (button) { button.disabled = false; button.textContent = originalLabel; }
+    }
 });
+
+function showListservMessage(text, ok) {
+    let msg = document.getElementById('listservMessage');
+    if (!msg) {
+        msg = document.createElement('p');
+        msg.id = 'listservMessage';
+        document.querySelector('.listserv-form-wrapper').insertAdjacentElement('afterend', msg);
+    }
+    msg.textContent = text;
+    msg.style.cssText = 'margin-top:16px;font-size:1rem;color:' + (ok ? '#7fd1a0' : '#f0a5a5') + ';';
+}
 
 // Carousel animation - start on scroll with 2-second delay
 const carousel = document.getElementById('speakersCarousel');
