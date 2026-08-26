@@ -1181,8 +1181,20 @@ details.person[open] .person-toggle {
 .jol-sub {
     font-family: 'Playfair Display', serif;
     font-size: 1.15rem;
+    line-height: 1.65;
     color: rgba(255, 255, 255, 0.92);
-    margin-top: 28px;
+    max-width: 720px;
+    margin: 28px auto 0;
+}
+
+.jol-sub a {
+    color: var(--old-glory-white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.jol-sub a:hover {
+    opacity: 0.8;
 }
 
 /* Opening / Closing remarks photo row (panels page) */
