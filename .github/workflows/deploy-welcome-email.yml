@@ -4,23 +4,21 @@
 # does not by itself put new function code or migrations into the project. This
 # workflow does that, on every change under supabase/.
 #
-# It stays inert until the four repository secrets below exist, so it will not
-# fail the build before anyone has configured it:
+# Two repository secrets are required (Settings -> Secrets and variables ->
+# Actions). Until both exist the job skips with a notice rather than failing:
 #
-#   SUPABASE_ACCESS_TOKEN         supabase.com/dashboard/account/tokens
-#   SUPABASE_DB_PASSWORD          the project's database password
-#   RESEND_API_KEY                resend.com -> API Keys (sending access only)
-#   WELCOME_EMAIL_WEBHOOK_SECRET  openssl rand -hex 32
+#   SUPABASE_ACCESS_TOKEN   supabase.com/dashboard/account/tokens
+#   RESEND_API_KEY          resend.com -> API Keys (sending access only)
 #
-# Optional, and worth adding — it removes the last manual step:
+# Deliberately NOT required: the project's database password. A Supabase
+# password cannot be read back after the project is created, and rotating it
+# breaks anything already connecting with it. Migrations and the Vault writes
+# therefore go through the Management API, which the access token alone
+# authorises.
 #
-#   SUPABASE_DB_URL               the project's connection string (Project
-#                                 Settings -> Database -> Connection string ->
-#                                 URI, password filled in). With it, the Vault
-#                                 secrets are written automatically; without
-#                                 it, the job prints SQL to run once by hand.
-#
-# Add them under Settings -> Secrets and variables -> Actions.
+# The trigger <-> function shared secret is generated here on each run and
+# written to both places that need it, so it never has to be stored, pasted, or
+# kept in sync by hand.
 
 name: Deploy welcome email
 
@@ -52,15 +50,11 @@ jobs:
         id: cfg
         env:
           ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-          DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          WEBHOOK_SECRET: ${{ secrets.WELCOME_EMAIL_WEBHOOK_SECRET }}
         run: |
           missing=''
           [ -n "$ACCESS_TOKEN" ]   || missing="$missing SUPABASE_ACCESS_TOKEN"
-          [ -n "$DB_PASSWORD" ]    || missing="$missing SUPABASE_DB_PASSWORD"
           [ -n "$RESEND_API_KEY" ] || missing="$missing RESEND_API_KEY"
-          [ -n "$WEBHOOK_SECRET" ] || missing="$missing WELCOME_EMAIL_WEBHOOK_SECRET"
 
           if [ -n "$missing" ]; then
             echo "ready=false" >> "$GITHUB_OUTPUT"
@@ -79,14 +73,25 @@ jobs:
         with:
           version: latest
 
+      - name: Generate the trigger/function shared secret
+        id: secret
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          secret="$(openssl rand -hex 32)"
+          echo "::add-mask::$secret"
+          echo "value=$secret" >> "$GITHUB_OUTPUT"
+          echo "Generated a fresh 32-byte shared secret for this deploy."
+
       - name: Set Edge Function secrets
         if: steps.cfg.outputs.ready == 'true'
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          WEBHOOK_SECRET: ${{ steps.secret.outputs.value }}
         run: |
           supabase secrets set --project-ref "$PROJECT_REF" \
-            RESEND_API_KEY="${{ secrets.RESEND_API_KEY }}" \
-            WELCOME_EMAIL_WEBHOOK_SECRET="${{ secrets.WELCOME_EMAIL_WEBHOOK_SECRET }}"
+            "RESEND_API_KEY=$RESEND_API_KEY" \
+            "WELCOME_EMAIL_WEBHOOK_SECRET=$WEBHOOK_SECRET"
 
       - name: Deploy the Edge Function
         if: steps.cfg.outputs.ready == 'true'
@@ -98,38 +103,25 @@ jobs:
         if: steps.cfg.outputs.ready == 'true'
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
         run: |
-          supabase link --project-ref "$PROJECT_REF"
-          supabase db push
+          # Every migration here is written to be idempotent, so replaying one
+          # that the project already has is a no-op.
+          for file in $(ls supabase/migrations/*.sql | sort); do
+            python3 supabase/scripts/mgmt-query.py \
+              --project-ref "$PROJECT_REF" --file "$file"
+          done
 
       - name: Store the endpoint and shared secret in Vault
         if: steps.cfg.outputs.ready == 'true'
         env:
-          DB_URL: ${{ secrets.SUPABASE_DB_URL }}
-          WEBHOOK_SECRET: ${{ secrets.WELCOME_EMAIL_WEBHOOK_SECRET }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          WEBHOOK_SECRET: ${{ steps.secret.outputs.value }}
         run: |
-          url="https://${PROJECT_REF}.supabase.co/functions/v1/${FUNCTION_NAME}"
-
-          if [ -z "$DB_URL" ]; then
-            # GitHub masks registered secrets in logs, so the shared secret
-            # cannot be printed here — it has to be substituted by hand.
-            echo "::notice title=One manual step remains::Add the optional SUPABASE_DB_URL secret to automate this, or run supabase/vault-secrets.sql once in the SQL Editor."
-            echo "Run this once in the Supabase dashboard SQL Editor:"
-            echo
-            echo "  select vault.create_secret('$url',"
-            echo "      'welcome_email_function_url', 'Welcome email Edge Function endpoint');"
-            echo
-            echo "  select vault.create_secret('<same value as the WELCOME_EMAIL_WEBHOOK_SECRET repo secret>',"
-            echo "      'welcome_email_webhook_secret', 'Shared secret for the welcome email webhook');"
-            exit 0
-          fi
-
-          psql "$DB_URL" -v ON_ERROR_STOP=1 \
-            -v fn_url="$url" \
-            -v fn_secret="$WEBHOOK_SECRET" \
-            -f supabase/vault-secrets.sql --quiet
-          echo "Vault secrets stored."
+          python3 supabase/scripts/mgmt-query.py \
+            --project-ref "$PROJECT_REF" \
+            --file supabase/vault-secrets.sql \
+            --var "fn_url=https://${PROJECT_REF}.supabase.co/functions/v1/${FUNCTION_NAME}" \
+            --var "fn_secret=$WEBHOOK_SECRET"
 
       - name: Smoke test the deployed endpoint
         if: steps.cfg.outputs.ready == 'true'
@@ -145,3 +137,15 @@ jobs:
             echo "::error::Expected HTTP 401 from $url, got $code"
             exit 1
           fi
+
+      - name: Confirm the trigger is wired up
+        if: steps.cfg.outputs.ready == 'true'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: |
+          python3 supabase/scripts/mgmt-query.py \
+            --project-ref "$PROJECT_REF" \
+            --sql "select tgname from pg_trigger
+                   where tgrelid = 'public.mailing_list'::regclass
+                     and tgname = 'on_mailing_list_insert_send_welcome';"
+          echo "Signups at vthepeople.org will now receive the welcome email."

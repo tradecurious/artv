@@ -28,142 +28,70 @@ Nothing was added to the front end; `js/main.js` is untouched.
 | `functions/welcome-email/index.ts` | Verifies the webhook, calls Resend, records the outcome |
 | `functions/welcome-email/email.ts` | Subject line and the HTML / plain-text bodies |
 | `config.toml` | Project ref, and `verify_jwt = false` for this function |
-| `deploy.sh` | Runs the whole deploy in one command, locally |
+| `deploy.sh` | Runs the whole deploy locally, in one command |
 | `vault-secrets.sql` | Stores the endpoint + shared secret in Vault |
-| `../.github/workflows/deploy-welcome-email.yml` | Does the same deploy on push to `main` |
+| `scripts/mgmt-query.py` | Runs SQL via the Management API (no database password needed) |
+| `../.github/workflows/deploy-welcome-email.yml` | Does the same deploy on every push to `main` |
 
 ## Setup
 
-### The short version
+### What you need
 
-Supabase is a separate service from the Vercel site deploy, so merging to
-`main` does not by itself put this code into the project. Two ways to get it
-there. **Neither needs the Supabase CLI on your machine.**
+Two credentials, and one thing only you can do.
 
-**Automatic, via GitHub Actions (recommended).** Do step 1 below — the Resend
-account and domain verification, which nobody can do for you — then add four
-repository secrets under *Settings → Secrets and variables → Actions*:
+**Do this first, because it has a waiting period:** create a Resend account,
+then **Domains → Add Domain → `vthepeople.org`**. Resend gives you DKIM, SPF,
+and DMARC records; add them at Cloudflare, where the domain is hosted, and wait
+for the domain to read **Verified**.
+
+This step is not optional. Until the domain verifies, Resend refuses to send
+from `team@vthepeople.org` — it only allows its own `onboarding@resend.dev`
+sender, to your own account address. Signups would silently get nothing.
+
+Then, from **Resend → API Keys**, create a key with *Sending access* only.
+
+### Deploying
+
+Add two repository secrets under *Settings → Secrets and variables → Actions*:
 
 | Secret | Where it comes from |
 | --- | --- |
 | `SUPABASE_ACCESS_TOKEN` | supabase.com/dashboard/account/tokens |
-| `SUPABASE_DB_PASSWORD` | the project's database password |
 | `RESEND_API_KEY` | Resend → API Keys, *sending access* only |
-| `WELCOME_EMAIL_WEBHOOK_SECRET` | `openssl rand -hex 32` — any value, it just has to be the same in both places |
-| `SUPABASE_DB_URL` *(optional)* | Project Settings → Database → Connection string → URI. Adding it removes the last manual step |
 
-`.github/workflows/deploy-welcome-email.yml` then deploys the function and
-applies the migration on every change under `supabase/`. Until those secrets
-exist the workflow skips cleanly with a notice rather than failing, and you can
-re-run it any time from the Actions tab.
+That is the whole configuration. `.github/workflows/deploy-welcome-email.yml`
+deploys the function and applies the migration on every change under
+`supabase/`, and can be re-run any time from the Actions tab. Until both
+secrets exist the workflow skips cleanly with a notice rather than failing.
 
-Without the optional `SUPABASE_DB_URL`, one manual step remains: the job log
-prints two `vault.create_secret(...)` statements to run once in the dashboard
-SQL Editor. GitHub masks secrets in logs, which is why the shared secret has to
-be pasted in by hand there rather than printed.
+Three things it deliberately does not ask for:
 
-**Or locally, if you prefer.** With the Supabase CLI installed and
-`supabase login` done:
+- **The database password.** A Supabase password cannot be read back after the
+  project is created, and rotating it breaks anything already connecting with
+  it. Migrations and Vault writes go through the Management API instead, which
+  the access token alone authorises.
+- **The trigger/function shared secret.** The workflow generates one on each
+  run and writes it to both places that need it — the function's environment
+  and Vault — so there is nothing to store or keep in sync. It is masked in the
+  job log.
+- **Any manual SQL.** `supabase/scripts/mgmt-query.py` applies the migration
+  and the Vault writes over the Management API.
 
-```bash
-./supabase/deploy.sh                                  # add --test-email you@example.com
-```
+### Running it locally instead
 
-Same steps, same idempotence, plus an optional live test email.
+`./supabase/deploy.sh` does exactly the same thing from your own machine, given
+the Supabase CLI and the same two credentials. Add
+`--test-email you@example.com` to send yourself a real welcome email at the
+end. You do not need this if the workflow is configured — it is here for a
+first deploy, or to check a copy edit without pushing.
 
-### The long version
+### A note on redeploys
 
-Steps 1–2 are account setup; 3–6 are the deploy.
-
-### 1. Resend
-
-1. Create an account at resend.com.
-2. **Domains → Add Domain → `vthepeople.org`.** Resend gives you DKIM, SPF, and
-   DMARC records; add them at Cloudflare, where the domain is hosted. Wait for
-   the domain to show as **Verified**.
-
-   This step is not optional. Until the domain verifies, Resend refuses to send
-   from `team@vthepeople.org` — it only allows its own `onboarding@resend.dev`
-   sender, to your own account address. Signups would silently get nothing.
-3. **API Keys → Create API Key**, with *Sending access* only. Copy the
-   `re_...` value; it is shown once.
-
-### 2. A shared secret
-
-The trigger and the Edge Function authenticate to each other with a secret you
-generate:
-
-```bash
-openssl rand -hex 32
-```
-
-Keep it around for steps 4 and 5.
-
-### 3. Link the CLI
-
-```bash
-npm install -g supabase          # or: brew install supabase/tap/supabase
-supabase login
-supabase link --project-ref dnkdbwxsygtptwbemydc
-```
-
-Run these from the repository root, where `supabase/` lives.
-
-### 4. Deploy the function
-
-```bash
-supabase secrets set \
-  RESEND_API_KEY='re_...' \
-  WELCOME_EMAIL_WEBHOOK_SECRET='<the secret from step 2>'
-
-supabase functions deploy welcome-email
-```
-
-`SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are injected by the platform —
-do not set them yourself.
-
-Optional overrides, if you would rather not edit `email.ts`:
-
-| Secret | Default |
-| --- | --- |
-| `WELCOME_EMAIL_FROM` | `V the People <team@vthepeople.org>` |
-| `WELCOME_EMAIL_REPLY_TO` | `team@vthepeople.org` |
-
-### 5. Apply the migration
-
-```bash
-supabase db push
-```
-
-This adds `welcome_sent_at` and `welcome_email_error` to `mailing_list`,
-enables `pg_net` and `supabase_vault`, and creates the trigger. It does not
-touch the existing rows or the `email` column.
-
-### 6. Store the endpoint and secret in Vault
-
-The trigger reads both at runtime from Supabase Vault, so that neither the
-migration file nor a `pg_dump` ever contains a credential. In the dashboard,
-**SQL Editor**, run:
-
-```sql
-select vault.create_secret(
-    'https://dnkdbwxsygtptwbemydc.supabase.co/functions/v1/welcome-email',
-    'welcome_email_function_url',
-    'Welcome email Edge Function endpoint'
-);
-
-select vault.create_secret(
-    '<the secret from step 2>',
-    'welcome_email_webhook_secret',
-    'Shared secret for the welcome email webhook'
-);
-```
-
-Until these exist the trigger logs a warning and sends nothing — signups are
-still recorded normally.
-
-To rotate later, use `vault.update_secret(<id>, '<new value>', ...)` and re-run
-`supabase secrets set WELCOME_EMAIL_WEBHOOK_SECRET=...`.
+Because the shared secret is regenerated per deploy, there is a window of a few
+seconds during a deploy where the function has the new secret and the database
+still has the old one. A signup landing in that window is still recorded, but
+its welcome email is rejected and shows up as a null `welcome_sent_at` — see
+[Sending to addresses that were missed](#sending-to-addresses-that-were-missed).
 
 ## Verify it works
 
@@ -180,12 +108,19 @@ A successful signup has `welcome_sent_at` set within a few seconds and
 `welcome_email_error` null. Also check **Edge Functions → welcome-email → Logs**
 in the dashboard, and the Resend dashboard's email log.
 
-To exercise the function without touching the table:
+To exercise the function without touching the table, you need the shared
+secret. It is generated at deploy time and never printed, but it is readable
+from Vault:
+
+```sql
+select decrypted_secret from vault.decrypted_secrets
+where name = 'welcome_email_webhook_secret';
+```
 
 ```bash
 curl -i https://dnkdbwxsygtptwbemydc.supabase.co/functions/v1/welcome-email \
   -H 'Content-Type: application/json' \
-  -H 'x-webhook-secret: <the secret from step 2>' \
+  -H 'x-webhook-secret: <that value>' \
   -d '{"type":"INSERT","table":"mailing_list","record":{"email":"you@example.com"}}'
 ```
 
@@ -193,10 +128,10 @@ curl -i https://dnkdbwxsygtptwbemydc.supabase.co/functions/v1/welcome-email \
 
 | Symptom | Cause |
 | --- | --- |
-| Row inserted, `welcome_sent_at` stays null, no function log | Vault secrets missing or misnamed (step 6). Check the Postgres logs for the `welcome email skipped` warning. |
-| Function log shows `401 unauthorized` | The Vault `welcome_email_webhook_secret` and the `WELCOME_EMAIL_WEBHOOK_SECRET` function secret differ. |
-| Function log shows `not_configured` | `RESEND_API_KEY` or `WELCOME_EMAIL_WEBHOOK_SECRET` was never set (step 4). |
-| `welcome_email_error` mentions 403 / domain | The Resend domain is not verified yet (step 1.2). |
+| Row inserted, `welcome_sent_at` stays null, no function log | Vault secrets missing or misnamed — re-run the deploy. Check the Postgres logs for the `welcome email skipped` warning. |
+| Function log shows `401 unauthorized` | The Vault `welcome_email_webhook_secret` and the function's `WELCOME_EMAIL_WEBHOOK_SECRET` have drifted apart, usually a deploy that failed partway. Re-running the deploy rewrites both. |
+| Function log shows `not_configured` | `RESEND_API_KEY` or `WELCOME_EMAIL_WEBHOOK_SECRET` was never set on the function — re-run the deploy. |
+| `welcome_email_error` mentions 403 / domain | The Resend domain is not verified yet — see *What you need*. |
 | `welcome_email_error` mentions 422 | The `from` address is not on a domain you have verified in Resend. |
 
 pg_net is fire-and-forget: a request it fails to deliver is not retried. That
