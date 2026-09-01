@@ -19,11 +19,18 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
-import urllib.error
-import urllib.request
+import tempfile
 
 API_ROOT = 'https://api.supabase.com'
+
+# api.supabase.com sits behind Cloudflare, whose browser-integrity check rejects
+# urllib's default User-Agent outright ("403: error code: 1010"). curl is the
+# client Supabase's own API reference demonstrates, so it is the one that gets
+# through. Both the token and the request body are passed via files rather than
+# argv, so neither shows up in the process list.
+USER_AGENT = 'vthepeople-welcome-email-deploy/1.0'
 
 
 def sql_literal(value: str) -> str:
@@ -43,28 +50,51 @@ def substitute(sql: str, variables: dict) -> str:
 
 
 def run_query(project_ref: str, token: str, sql: str) -> object:
-    request = urllib.request.Request(
-        f'{API_ROOT}/v1/projects/{project_ref}/database/query',
-        data=json.dumps({'query': sql}).encode(),
-        headers={
-            'Authorization': f'Bearer {token}',
-            'Content-Type': 'application/json',
-        },
-        method='POST',
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=120) as response:
-            body = response.read().decode()
-    except urllib.error.HTTPError as err:
-        detail = err.read().decode(errors='replace')
+    url = f'{API_ROOT}/v1/projects/{project_ref}/database/query'
+
+    with tempfile.TemporaryDirectory() as workdir:
+        body_path = os.path.join(workdir, 'body.json')
+        config_path = os.path.join(workdir, 'curl.cfg')
+
+        with open(body_path, 'w', encoding='utf-8') as handle:
+            json.dump({'query': sql}, handle)
+
+        with open(config_path, 'w', encoding='utf-8') as handle:
+            handle.write(
+                f'header = "Authorization: Bearer {token}"\n'
+                'header = "Content-Type: application/json"\n'
+                f'user-agent = "{USER_AGENT}"\n'
+                f'data-binary = "@{body_path}"\n'
+            )
+
+        response_path = os.path.join(workdir, 'response')
+        completed = subprocess.run(
+            ['curl', '--silent', '--show-error', '--request', 'POST',
+             '--config', config_path,
+             '--output', response_path,
+             '--write-out', '%{http_code}',
+             '--max-time', '120', url],
+            capture_output=True, text=True,
+        )
+
+        if completed.returncode != 0:
+            sys.exit(f'error: curl failed: {completed.stderr.strip() or completed.returncode}')
+
+        status = completed.stdout.strip()
+        try:
+            with open(response_path, encoding='utf-8', errors='replace') as handle:
+                body = handle.read()
+        except OSError:
+            body = ''
+
+    if not status.startswith('2'):
+        detail = body.strip()
         try:
             detail = json.loads(detail).get('message', detail)
         except ValueError:
             pass
         # Deliberately not echoing the SQL — it may carry a secret.
-        sys.exit(f'error: Supabase API returned {err.code}: {detail}')
-    except urllib.error.URLError as err:
-        sys.exit(f'error: could not reach {API_ROOT}: {err.reason}')
+        sys.exit(f'error: Supabase API returned {status}: {detail[:500]}')
 
     try:
         return json.loads(body) if body.strip() else []
