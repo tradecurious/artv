@@ -28,27 +28,48 @@ Nothing was added to the front end; `js/main.js` is untouched.
 | `functions/welcome-email/index.ts` | Verifies the webhook, calls Resend, records the outcome |
 | `functions/welcome-email/email.ts` | Subject line and the HTML / plain-text bodies |
 | `config.toml` | Project ref, and `verify_jwt = false` for this function |
-| `deploy.sh` | Runs the whole deploy in one command |
+| `deploy.sh` | Runs the whole deploy in one command, locally |
+| `vault-secrets.sql` | Stores the endpoint + shared secret in Vault |
+| `../.github/workflows/deploy-welcome-email.yml` | Does the same deploy on push to `main` |
 
 ## Setup
 
 ### The short version
 
-Do step 1 below (the Resend account and domain verification — nobody can do
-that for you), then run:
+Supabase is a separate service from the Vercel site deploy, so merging to
+`main` does not by itself put this code into the project. Two ways to get it
+there. **Neither needs the Supabase CLI on your machine.**
+
+**Automatic, via GitHub Actions (recommended).** Do step 1 below — the Resend
+account and domain verification, which nobody can do for you — then add four
+repository secrets under *Settings → Secrets and variables → Actions*:
+
+| Secret | Where it comes from |
+| --- | --- |
+| `SUPABASE_ACCESS_TOKEN` | supabase.com/dashboard/account/tokens |
+| `SUPABASE_DB_PASSWORD` | the project's database password |
+| `RESEND_API_KEY` | Resend → API Keys, *sending access* only |
+| `WELCOME_EMAIL_WEBHOOK_SECRET` | `openssl rand -hex 32` — any value, it just has to be the same in both places |
+| `SUPABASE_DB_URL` *(optional)* | Project Settings → Database → Connection string → URI. Adding it removes the last manual step |
+
+`.github/workflows/deploy-welcome-email.yml` then deploys the function and
+applies the migration on every change under `supabase/`. Until those secrets
+exist the workflow skips cleanly with a notice rather than failing, and you can
+re-run it any time from the Actions tab.
+
+Without the optional `SUPABASE_DB_URL`, one manual step remains: the job log
+prints two `vault.create_secret(...)` statements to run once in the dashboard
+SQL Editor. GitHub masks secrets in logs, which is why the shared secret has to
+be pasted in by hand there rather than printed.
+
+**Or locally, if you prefer.** With the Supabase CLI installed and
+`supabase login` done:
 
 ```bash
-./supabase/deploy.sh
+./supabase/deploy.sh                                  # add --test-email you@example.com
 ```
 
-It generates the shared secret, sets the function secrets, deploys the
-function, applies the migration, stores the Vault secrets, and smoke-tests the
-result. It is idempotent, so re-running it is safe. Add
-`--test-email you@example.com` to have it send you a real welcome email at the
-end.
-
-The rest of this section is what that script does, step by step, in case you
-would rather run it by hand or need to debug a step.
+Same steps, same idempotence, plus an optional live test email.
 
 ### The long version
 
