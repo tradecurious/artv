@@ -28,10 +28,31 @@ Nothing was added to the front end; `js/main.js` is untouched.
 | `functions/welcome-email/index.ts` | Verifies the webhook, calls Resend, records the outcome |
 | `functions/welcome-email/email.ts` | Subject line and the HTML / plain-text bodies |
 | `config.toml` | Project ref, and `verify_jwt = false` for this function |
+| `deploy.sh` | Runs the whole deploy in one command |
 
 ## Setup
 
-Run once. Steps 1–2 are account setup; 3–6 are the deploy.
+### The short version
+
+Do step 1 below (the Resend account and domain verification — nobody can do
+that for you), then run:
+
+```bash
+./supabase/deploy.sh
+```
+
+It generates the shared secret, sets the function secrets, deploys the
+function, applies the migration, stores the Vault secrets, and smoke-tests the
+result. It is idempotent, so re-running it is safe. Add
+`--test-email you@example.com` to have it send you a real welcome email at the
+end.
+
+The rest of this section is what that script does, step by step, in case you
+would rather run it by hand or need to debug a step.
+
+### The long version
+
+Steps 1–2 are account setup; 3–6 are the deploy.
 
 ### 1. Resend
 
