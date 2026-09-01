@@ -38,7 +38,11 @@ The color scheme uses CSS variables defined in `style.css`:
 - `--old-glory-blue`: #002868
 
 ### Email Handling
-The listserv form currently logs submissions to the console. Update `js/main.js` to integrate with your email service (Mailchimp, ConvertKit, etc.).
+The listserv form posts each address to the `mailing_list` table in Supabase
+(`js/main.js`). A database trigger then hands the new row to a Supabase Edge
+Function, which sends the subscriber a welcome email through Resend. The
+function, the migration, and the setup steps live in [`supabase/`](supabase/);
+the email copy itself is in `supabase/functions/welcome-email/email.ts`.
 
 ### RSVP Link
 Update the `#rsvp` anchor link in the footer and "Request RSVP" button to point to your registration page.
