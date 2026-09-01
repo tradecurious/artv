@@ -1,0 +1,7 @@
+project_id = "dnkdbwxsygtptwbemydc"
+
+[functions.welcome-email]
+# The caller is the pg_net worker behind a database trigger, not a signed-in
+# user, so there is no JWT to verify. The function authenticates the request
+# itself with the x-webhook-secret shared secret.
+verify_jwt = false
