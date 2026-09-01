@@ -122,6 +122,7 @@ else
 fi
 
 python3 "$MGMT" --project-ref "$PROJECT_REF" \
+    --expect-rows 1 \
     --sql "select tgname from pg_trigger
            where tgrelid = 'public.mailing_list'::regclass
              and tgname = 'on_mailing_list_insert_send_welcome';"
