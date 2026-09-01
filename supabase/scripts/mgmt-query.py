@@ -80,6 +80,9 @@ def main() -> None:
     source.add_argument('--sql', help='SQL string to run')
     parser.add_argument('--var', action='append', default=[], metavar='NAME=VALUE',
                         help="value for a :'NAME' placeholder; repeatable")
+    parser.add_argument('--expect-rows', type=int, metavar='N',
+                        help='fail unless the query returns at least N rows; use to '
+                             'assert a check query actually found something')
     args = parser.parse_args()
 
     token = os.environ.get('SUPABASE_ACCESS_TOKEN', '').strip()
@@ -110,6 +113,13 @@ def main() -> None:
     result = run_query(args.project_ref, token, substitute(sql, variables))
 
     rows = len(result) if isinstance(result, list) else 1
+
+    # Without this, a check query that finds nothing still exits 0 — so a
+    # missing trigger would be reported as a successful deploy.
+    if args.expect_rows is not None and rows < args.expect_rows:
+        sys.exit(f'error: {label} returned {rows} row(s), expected at least '
+                 f'{args.expect_rows}')
+
     print(f'{label}: applied ({rows} row(s) returned)')
 
 
