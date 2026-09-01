@@ -56,14 +56,43 @@ jobs:
           [ -n "$ACCESS_TOKEN" ]   || missing="$missing SUPABASE_ACCESS_TOKEN"
           [ -n "$RESEND_API_KEY" ] || missing="$missing RESEND_API_KEY"
 
+          # Not configured yet is not a failure — skip quietly so an unconfigured
+          # repo does not sit there red.
           if [ -n "$missing" ]; then
             echo "ready=false" >> "$GITHUB_OUTPUT"
             echo "::notice title=Welcome email not deployed::Skipped. Add these repository secrets to enable it:$missing"
             echo "Skipping: missing repository secrets:$missing"
             echo "Setup steps are in supabase/README.md."
-          else
-            echo "ready=true" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
+
+          # Configured but wrong is a different thing, and worth failing on. The
+          # two values look alike enough to swap by accident, and a swapped pair
+          # deploys clean and then fails silently at send time, where the only
+          # symptom is subscribers not receiving anything.
+          bad=''
+          case "$ACCESS_TOKEN" in
+            sbp_*) ;;
+            *) bad="$bad
+            - SUPABASE_ACCESS_TOKEN does not start with 'sbp_'. Expected a personal
+              access token from supabase.com/dashboard/account/tokens." ;;
+          esac
+          case "$RESEND_API_KEY" in
+            re_*) ;;
+            *) bad="$bad
+            - RESEND_API_KEY does not start with 're_'. Expected a key from
+              resend.com/api-keys." ;;
+          esac
+
+          if [ -n "$bad" ]; then
+            echo "::error title=Deploy secrets look wrong::A secret is set but does not match its expected format."
+            echo "One or more secrets are set to the wrong value:$bad"
+            echo
+            echo "Fix them at Settings -> Secrets and variables -> Actions, then re-run."
+            exit 1
+          fi
+
+          echo "ready=true" >> "$GITHUB_OUTPUT"
 
       - uses: actions/checkout@v4
         if: steps.cfg.outputs.ready == 'true'
