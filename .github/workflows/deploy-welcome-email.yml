@@ -68,6 +68,17 @@ jobs:
       - uses: actions/checkout@v4
         if: steps.cfg.outputs.ready == 'true'
 
+      - uses: actions/setup-node@v4
+        if: steps.cfg.outputs.ready == 'true'
+        with:
+          node-version: '22'
+
+      - name: Test the Edge Function
+        if: steps.cfg.outputs.ready == 'true'
+        # Runs the handler against a stubbed runtime and a fake Resend, so a
+        # broken template or handler fails here rather than in someone's inbox.
+        run: node --experimental-strip-types supabase/functions/welcome-email/test.mjs
+
       - uses: supabase/setup-cli@v1
         if: steps.cfg.outputs.ready == 'true'
         with:

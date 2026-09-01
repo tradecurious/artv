@@ -27,6 +27,7 @@ Nothing was added to the front end; `js/main.js` is untouched.
 | `migrations/20260901000000_welcome_email_webhook.sql` | Delivery columns, trigger function, trigger |
 | `functions/welcome-email/index.ts` | Verifies the webhook, calls Resend, records the outcome |
 | `functions/welcome-email/email.ts` | Subject line and the HTML / plain-text bodies |
+| `functions/welcome-email/test.mjs` | Tests the handler against a stubbed runtime and a fake Resend |
 | `config.toml` | Project ref, and `verify_jwt = false` for this function |
 | `deploy.sh` | Runs the whole deploy locally, in one command |
 | `vault-secrets.sql` | Stores the endpoint + shared secret in Vault |
@@ -186,6 +187,15 @@ The copy lives in `functions/welcome-email/email.ts` — `WELCOME_SUBJECT`, plus
 `html()` and `text()`. Keep both bodies in sync; clients that refuse HTML fall
 back to the plain-text one. Styles are inline by necessity, since email clients
 discard `<style>` blocks.
+
+Check an edit before it reaches anyone:
+
+```bash
+node --experimental-strip-types supabase/functions/welcome-email/test.mjs
+```
+
+The same suite runs in CI ahead of the deploy, so a broken template fails the
+workflow instead of a subscriber's inbox.
 
 After editing:
 
