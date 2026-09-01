@@ -104,26 +104,6 @@ supabase db push
 
 step 'Storing the endpoint and shared secret in Vault'
 
-VAULT_SQL=$(cat <<'SQL'
--- create if absent, then overwrite: idempotent across re-runs
-select vault.create_secret(:'fn_url', 'welcome_email_function_url',
-                           'Welcome email Edge Function endpoint')
-where not exists (select 1 from vault.secrets
-                  where name = 'welcome_email_function_url');
-select vault.update_secret(id, :'fn_url', 'welcome_email_function_url',
-                           'Welcome email Edge Function endpoint')
-from vault.secrets where name = 'welcome_email_function_url';
-
-select vault.create_secret(:'fn_secret', 'welcome_email_webhook_secret',
-                           'Shared secret for the welcome email webhook')
-where not exists (select 1 from vault.secrets
-                  where name = 'welcome_email_webhook_secret');
-select vault.update_secret(id, :'fn_secret', 'welcome_email_webhook_secret',
-                           'Shared secret for the welcome email webhook')
-from vault.secrets where name = 'welcome_email_webhook_secret';
-SQL
-)
-
 vault_applied=0
 if command -v psql >/dev/null 2>&1; then
     DB_URL="${SUPABASE_DB_URL:-}"
@@ -137,10 +117,11 @@ if command -v psql >/dev/null 2>&1; then
     fi
 
     if [ -n "$DB_URL" ]; then
-        if printf '%s\n' "$VAULT_SQL" | psql "$DB_URL" \
+        if psql "$DB_URL" \
               -v ON_ERROR_STOP=1 \
               -v "fn_url=${FUNCTION_URL}" \
               -v "fn_secret=${WELCOME_EMAIL_WEBHOOK_SECRET}" \
+              -f supabase/vault-secrets.sql \
               --quiet >/dev/null; then
             info 'Vault secrets stored'
             vault_applied=1
