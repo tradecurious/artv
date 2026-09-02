@@ -80,6 +80,16 @@ check('text carries the message', /Thanks for signing up/i.test(sent.text));
 check('html offers an unsubscribe', /unsubscribe/i.test(sent.html));
 check('text offers an unsubscribe', /unsubscribe/i.test(sent.text));
 check('html is a complete document', sent.html.trimStart().startsWith('<!DOCTYPE html>'));
+
+// The ticket link is the point of the email; losing it in an edit should fail
+// loudly. The href must carry &amp; — a bare & is invalid in an attribute and
+// some clients strip the whole link rather than repairing it.
+const TICKETS = 'secure.touchnet.net/C20832_ustores/web/store_main.jsp';
+check('html links to tickets', sent.html.includes(TICKETS));
+check('the link is anchored on "here"', />here<\/a>/.test(sent.html));
+check('href escapes its ampersands', sent.html.includes('STOREID=42&amp;SINGLESTORE=true'));
+check('href has no raw ampersand', !/href="[^"]*&(?!amp;)/.test(sent.html));
+check('text gives the ticket url in full', sent.text.includes('STOREID=42&SINGLESTORE=true'));
 check('html stays under the Gmail clip limit', sent.html.length < 102000, `${sent.html.length} bytes`);
 
 const patch = calls.find((c) => c.method === 'PATCH');
