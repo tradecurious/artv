@@ -6,6 +6,14 @@
 
 const SITE_URL = 'https://vthepeople.org';
 const CONTACT_EMAIL = 'team@vthepeople.org';
+const TICKETS_URL =
+    'https://secure.touchnet.net/C20832_ustores/web/store_main.jsp?STOREID=42&SINGLESTORE=true';
+
+// The ticket URL carries a bare & between its query parameters, which is not
+// valid inside an HTML attribute. Some mail clients sanitize the whole href
+// away rather than repairing it, so escape it for markup and keep the raw URL
+// for the plain-text body.
+const TICKETS_HREF = TICKETS_URL.replace(/&/g, '&amp;');
 
 const RED = '#B22234';
 const BLUE = '#002868';
@@ -28,7 +36,7 @@ function html(): string {
 <title>${WELCOME_SUBJECT}</title>
 </head>
 <body style="margin:0;padding:0;background-color:#f4f4f2;">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;">We'll see you in Cambridge in October.</div>
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">We'll see you in Cambridge soon. Details and tickets inside.</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f4f2;">
 <tr>
 <td align="center" style="padding:32px 16px;">
@@ -46,8 +54,8 @@ function html(): string {
 
 <tr>
 <td style="padding:40px 32px 36px;">
-<p style="margin:0 0 18px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.6;color:${INK};">Thanks for signing up.</p>
-<p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.6;color:${INK};">We'll see you in Cambridge in October&hellip;</p>
+<p style="margin:0 0 18px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.6;color:${INK};">Thanks for signing up. We'll see you in Cambridge soon&hellip;</p>
+<p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.6;color:${INK};">Details and tickets available <a href="${TICKETS_HREF}" style="color:${BLUE};text-decoration:underline;">here</a>.</p>
 </td>
 </tr>
 
@@ -73,9 +81,10 @@ function html(): string {
 function text(): string {
     return `V THE PEOPLE
 
-Thanks for signing up.
+Thanks for signing up. We'll see you in Cambridge soon...
 
-We'll see you in Cambridge in October...
+Details and tickets available here:
+${TICKETS_URL}
 
 Questions? Reply to this message or write to ${CONTACT_EMAIL}.
 
