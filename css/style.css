@@ -1091,11 +1091,12 @@ details.person[open] .person-toggle {
 }
 
 .featured-guests-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 48px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 48px 56px;
     margin-top: 52px;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .featured-guest-group {
@@ -1115,7 +1116,7 @@ details.person[open] .person-toggle {
 .featured-guest-people {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 28px;
 }
 
@@ -1830,7 +1831,7 @@ details.person[open] .person-toggle {
     }
 
     .featured-guests-grid {
-        gap: 40px 24px;
+        gap: 40px 36px;
         margin-top: 40px;
     }
 
