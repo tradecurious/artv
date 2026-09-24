@@ -105,7 +105,7 @@ body {
 }
 
 /* The centered 3D V sits behind the nav; hide it when the links would collide */
-@media (max-width: 1180px) {
+@media (max-width: 1320px) {
     .site-nav-v3d {
         display: none;
     }
@@ -1912,5 +1912,147 @@ details.person[open] .person-toggle {
         right: -120px;
         width: 300px;
         height: 300px;
+    }
+}
+
+/* Watch Live Page */
+.watch-page .article-container {
+    max-width: 900px;
+}
+
+.watch-countdown {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.watch-countdown-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--old-glory-red);
+    margin-bottom: 16px;
+}
+
+.watch-countdown-clock {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.watch-countdown-unit {
+    flex: 0 1 120px;
+    padding: 18px 8px 14px;
+    background: var(--old-glory-blue);
+    color: var(--old-glory-white);
+    border-bottom: 3px solid var(--old-glory-red);
+}
+
+.watch-countdown-value {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.watch-countdown-unit-label {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.watch-countdown-when {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: #444;
+    margin-top: 18px;
+}
+
+.watch-live-badge {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--old-glory-red);
+}
+
+.watch-live-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--old-glory-red);
+    animation: watch-live-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes watch-live-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.8); }
+}
+
+.watch-countdown.is-live .watch-countdown-label,
+.watch-countdown.is-live .watch-countdown-clock {
+    display: none;
+}
+
+.watch-countdown.is-live .watch-live-badge {
+    display: flex;
+}
+
+.watch-player {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #000;
+    border-bottom: 3px solid var(--old-glory-red);
+}
+
+.watch-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.watch-note {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.08rem;
+    line-height: 1.7;
+    color: #444;
+    margin-top: 24px;
+}
+
+.watch-note a {
+    color: var(--old-glory-blue);
+}
+
+@media (max-width: 768px) {
+    .watch-countdown-clock {
+        gap: 8px;
+    }
+
+    .watch-countdown-unit {
+        flex: 1 1 0;
+        padding: 14px 4px 12px;
+    }
+
+    .watch-countdown-unit-label {
+        font-size: 0.62rem;
+        letter-spacing: 1px;
     }
 }
