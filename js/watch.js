@@ -15,15 +15,6 @@
         return (n < 10 ? '0' : '') + n;
     }
 
-    // Update a digit group, replaying its "tick" animation only when the value changes.
-    function setValue(el, text) {
-        if (el.textContent === text) return;
-        el.textContent = text;
-        el.classList.remove('is-ticking');
-        void el.offsetWidth;
-        el.classList.add('is-ticking');
-    }
-
     var timer = null;
 
     function tick() {
@@ -34,10 +25,10 @@
             return;
         }
         var total = Math.floor(remaining / 1000);
-        setValue(fields.days, pad(Math.floor(total / 86400)));
-        setValue(fields.hours, pad(Math.floor((total % 86400) / 3600)));
-        setValue(fields.minutes, pad(Math.floor((total % 3600) / 60)));
-        setValue(fields.seconds, pad(total % 60));
+        fields.days.textContent = pad(Math.floor(total / 86400));
+        fields.hours.textContent = pad(Math.floor((total % 86400) / 3600));
+        fields.minutes.textContent = pad(Math.floor((total % 3600) / 60));
+        fields.seconds.textContent = pad(total % 60);
     }
 
     tick();
