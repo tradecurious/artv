@@ -45,67 +45,90 @@
     </nav>
 
     <!-- Watch Live -->
-    <main class="article-page watch-page">
-        <div class="article-container">
+    <main class="watch-page">
+        <section class="watch-theater">
+            <div class="watch-stage">
 
-            <nav class="article-breadcrumb">
-                <a href="index.html">Home</a>
-                <span>›</span>
-                Article V Convention
-                <span>›</span>
-                Watch Live
-            </nav>
+                <header class="watch-heading">
+                    <h1>Watch Live</h1>
+                    <p class="watch-heading-deck">October 2nd &amp; 3rd, 2026 &middot; Wasserstein Hall, Harvard Law School</p>
+                </header>
 
-            <header class="article-header">
-                <h1>Watch Live</h1>
-                <p class="article-deck">October 2nd &amp; 3rd, 2026 &middot; Wasserstein Hall, Harvard Law School</p>
-            </header>
+                <section class="watch-countdown" aria-label="Countdown to the livestream">
+                    <svg class="watch-countdown-stars" aria-hidden="true" focusable="false">
+                        <defs>
+                            <pattern id="watchStars" width="84" height="84" patternUnits="userSpaceOnUse">
+                                <polygon points="50,10 61,40 93,40 68,60 79,90 50,70 21,90 32,60 7,40 39,40" transform="translate(10 10) scale(0.16)"/>
+                                <polygon points="50,10 61,40 93,40 68,60 79,90 50,70 21,90 32,60 7,40 39,40" transform="translate(52 50) scale(0.11)"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#watchStars)"/>
+                    </svg>
+                    <i class="watch-countdown-twinkle" aria-hidden="true"></i>
+                    <i class="watch-countdown-twinkle" aria-hidden="true"></i>
+                    <i class="watch-countdown-twinkle" aria-hidden="true"></i>
+                    <i class="watch-countdown-twinkle" aria-hidden="true"></i>
+                    <i class="watch-countdown-twinkle" aria-hidden="true"></i>
+                    <i class="watch-countdown-twinkle" aria-hidden="true"></i>
+                    <span class="watch-countdown-shine" aria-hidden="true"></span>
 
-            <section class="watch-countdown" aria-label="Countdown to the livestream">
-                <p class="watch-countdown-label">Opening remarks begin in</p>
-                <div class="watch-countdown-clock" role="timer">
-                    <div class="watch-countdown-unit">
-                        <span class="watch-countdown-value" data-unit="days">&ndash;&ndash;</span>
-                        <span class="watch-countdown-unit-label">Days</span>
+                    <div class="watch-countdown-body">
+                        <p class="watch-countdown-label">Opening remarks begin in</p>
+                        <div class="watch-countdown-clock" role="timer">
+                            <span class="watch-countdown-group">
+                                <span class="watch-countdown-value" data-unit="days">&ndash;&ndash;</span>
+                                <span class="watch-countdown-unit-label">Days</span>
+                            </span>
+                            <span class="watch-countdown-sep" aria-hidden="true">:</span>
+                            <span class="watch-countdown-group">
+                                <span class="watch-countdown-value" data-unit="hours">&ndash;&ndash;</span>
+                                <span class="watch-countdown-unit-label">Hours</span>
+                            </span>
+                            <span class="watch-countdown-sep" aria-hidden="true">:</span>
+                            <span class="watch-countdown-group">
+                                <span class="watch-countdown-value" data-unit="minutes">&ndash;&ndash;</span>
+                                <span class="watch-countdown-unit-label">Minutes</span>
+                            </span>
+                            <span class="watch-countdown-sep" aria-hidden="true">:</span>
+                            <span class="watch-countdown-group">
+                                <span class="watch-countdown-value" data-unit="seconds">&ndash;&ndash;</span>
+                                <span class="watch-countdown-unit-label">Seconds</span>
+                            </span>
+                        </div>
+                        <p class="watch-live-badge"><span class="watch-live-dot" aria-hidden="true"></span>Live now</p>
+                        <p class="watch-countdown-when">Friday, October 2nd, 2026 &middot; 4:45 PM Eastern</p>
+                        <p class="watch-countdown-when watch-countdown-when-live">Streaming from Wasserstein Hall, Harvard Law School</p>
                     </div>
-                    <div class="watch-countdown-unit">
-                        <span class="watch-countdown-value" data-unit="hours">&ndash;&ndash;</span>
-                        <span class="watch-countdown-unit-label">Hours</span>
-                    </div>
-                    <div class="watch-countdown-unit">
-                        <span class="watch-countdown-value" data-unit="minutes">&ndash;&ndash;</span>
-                        <span class="watch-countdown-unit-label">Minutes</span>
-                    </div>
-                    <div class="watch-countdown-unit">
-                        <span class="watch-countdown-value" data-unit="seconds">&ndash;&ndash;</span>
-                        <span class="watch-countdown-unit-label">Seconds</span>
-                    </div>
+                </section>
+
+                <div class="watch-player">
+                    <iframe
+                        src="https://cdnapisec.kaltura.com/p/1511881/embedPlaykitJs/uiconf_id/55120702?iframeembed=true&amp;entry_id=1_00hxucti"
+                        title="V the People conference livestream"
+                        allow="autoplay; fullscreen; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
                 </div>
-                <p class="watch-live-badge"><span class="watch-live-dot" aria-hidden="true"></span>Live now</p>
-                <p class="watch-countdown-when">Friday, October 2nd, 2026 &middot; 4:45 PM Eastern</p>
-            </section>
 
-            <div class="watch-player">
-                <iframe
-                    src="https://cdnapisec.kaltura.com/p/1511881/embedPlaykitJs/uiconf_id/55120702?iframeembed=true&amp;entry_id=1_00hxucti"
-                    title="V the People conference livestream"
-                    allow="autoplay; fullscreen; encrypted-media"
-                    allowfullscreen>
-                </iframe>
             </div>
+        </section>
 
-            <p class="watch-note">The conference will stream here from Wasserstein Hall. Until the broadcast begins, the player may show the stream as offline. Check back at 4:45 PM ET on Friday, and see the <a href="schedule.html">full schedule</a> for session times.</p>
+        <section class="article-page">
+            <div class="article-container">
 
-            <nav class="faq-learn-more">
-                <h2>Learn More</h2>
-                <ul>
-                    <li><a href="schedule.html">Conference Schedule</a></li>
-                    <li><a href="panels.html">Panelists and Speakers</a></li>
-                    <li><a href="index.html">V the People: Conference Home</a></li>
-                </ul>
-            </nav>
+                <p class="watch-note">The conference will stream here from Wasserstein Hall. Until the broadcast begins, the player may show the stream as offline. Check back at 4:45 PM ET on Friday, and see the <a href="schedule.html">full schedule</a> for session times.</p>
 
-        </div>
+                <nav class="faq-learn-more">
+                    <h2>Learn More</h2>
+                    <ul>
+                        <li><a href="schedule.html">Conference Schedule</a></li>
+                        <li><a href="panels.html">Panelists and Speakers</a></li>
+                        <li><a href="index.html">V the People: Conference Home</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
