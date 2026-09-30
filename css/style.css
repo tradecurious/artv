@@ -1198,6 +1198,66 @@ details.person[open] .person-toggle {
     opacity: 0.8;
 }
 
+/* Supporters band */
+.supporters-section {
+    padding: 80px 20px;
+    background: var(--old-glory-white);
+    text-align: center;
+}
+
+.supporters-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 12px;
+}
+
+.supporters-section h2::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: var(--old-glory-red);
+    margin: 18px auto 0;
+}
+
+.supporters-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px 72px;
+    margin-top: 52px;
+}
+
+.supporter-logo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 90px;
+    max-width: 100%;
+}
+
+.supporters-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--dark-text);
+    max-width: 720px;
+    margin: 40px auto 0;
+}
+
+@media (max-width: 768px) {
+    .supporters-logos {
+        gap: 32px;
+    }
+
+    .supporter-logo {
+        max-height: 64px;
+    }
+}
+
 /* Opening / Closing remarks photo row (panels page) */
 .remarks-row {
     display: flex;
