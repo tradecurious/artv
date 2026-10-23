@@ -1,12 +1,20 @@
 {
   "rewrites": [
     {
-      "source": "/watch",
-      "destination": "/watch.html"
-    },
-    {
       "source": "/videos",
       "destination": "/videos.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/watch",
+      "destination": "/videos",
+      "permanent": true
+    },
+    {
+      "source": "/watch.html",
+      "destination": "/videos",
+      "permanent": true
     }
   ]
 }
